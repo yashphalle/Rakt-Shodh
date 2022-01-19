@@ -21,7 +21,72 @@
 <body>
     <table class="table">
         <thead>
-          <tr>
+          <tr  id="header">
+            
+            <th scope="col">Blood Bank Name</th>
+            <th scope="col">city</th>
+            <th id="bgdata" scope="col">A +ve </th>
+            <th id="bgdata" scope="col">B +ve </th>
+            <th id="bgdata" scope="col">O +ve </th>
+            <th id="bgdata" scope="col">AB +ve </th>
+            <th id="bgdata" scope="col">A -ve </th>
+            <th id="bgdata" scope="col">B -ve </th>
+            <th id="bgdata" scope="col">O -ve </th>
+            <th id="bgdata" scope="col">AB -ve </th>
+          </tr>
+        </thead>
+        <tbody>
+            <%bloodbanklist.forEach(bloodbank=>{%>
+            <tr>        
+                <td id="bbname"><%=bloodbank.bloodbankname %></td>
+                <td><%=bloodbank.city %></td>
+                <td><%=bloodbank.a_pos %></td>
+                <td><%=bloodbank.b_pos %></td>
+                <td><%=bloodbank.o_pos %></td>
+                <td><%=bloodbank.ab_pos %></td>
+                <td><%=bloodbank.a_neg %></td>
+                <td><%=bloodbank.b_neg %></td>
+                <td><%=bloodbank.o_neg %></td>
+                <td><%=bloodbank.ab_neg %></td>              
+
+            </tr>
+        <%})%>
+        </tbody>
+     
+      </table>
+      <br>
+      <br>
+      <p> Don't worry if you cannot find blood in these blood banks you can request blood from people in your area</p>
+      <br>
+      <br>
+      <button id="btn">
+        <a id="request"href="/request" text-decoratio> request blood</a>
+      </button>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #request{
+        text-decoration: none;
+        color: rgb(253, 250, 249);
+       
+      }
+      #btn{
+        background-color: rgb(0, 209, 0);
+        margin-left: 350px;
+      }
+    </style>
+    <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr  id="header">
             
             <th scope="col">Blood Bank Name</th>
             <th scope="col">city</th>
