@@ -64,8 +64,49 @@ nav ul li:hover {
     /* background-position: center; */
     background-repeat: no-repeat;
     background-size:contain;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     position: relative;
+}
+
+
+@media (max-width: 500px) {
+
+    #front{
+        background-image: url("mobileview.png");
+    }
+
+    #ourservices{
+        /* position: absolute; */
+        
+        bottom: 10px;
+        left: 17vw;
+        font-size:6vw ;
+
+    }
+
+    #ourservicestext{
+        padding-top: 0;
+        margin-top: 0;
+    }
+    #button_shift{
+        /* position: relative; */
+        /* top: 60vh;
+        left: 22vw;
+        width: 5rem; */
+        display: none;
+    }
+
+    #container2{
+        display: block;
+    }
+
+    #container3{
+        margin-top: 20%;
+        height: 100vh;
+    }
+    
+
+    
 }
 
 

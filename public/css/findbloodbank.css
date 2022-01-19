@@ -76,7 +76,7 @@ form{
 
 
 .btn{
-    margin-top: 10rem;
+ 
     display: flex;
     justify-self: center;
     align-items: center;
@@ -88,4 +88,28 @@ form{
     border-radius: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
+}
+#t1{
+    justify-content: center;
+    text-align: center;
+    /* display: inline-flex; */
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 50px;
+     height: 40px;
+}
+#btn3{
+    margin-top: 8rem;
+    margin: auto;
+    height: 70px;
+    width: 200px;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    color: white;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
 }
