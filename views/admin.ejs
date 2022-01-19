@@ -1,75 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/table.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/table.css">
+  <title>Document</title>
+
+
+  <style>
+    .toooop {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      width: 300px;
+      /* border: 2px red solid; */
+    }
+
+
+    #udpatestock {
+      font-size: 45px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    }
+
+    #ggg {
+      margin-bottom: 30px;
+    }
+
+    .oppptions {
+      /* display: flex; */
+      /* display: flex; */
+      /* justify-content: center;
+      align-items: center; */
+      margin: auto;
+      width: 80vw;
+      /* border: 2px red solid; */
+
+    }
+
+    .updtebtn {
+      /* margin-top: 50px; */
+      margin: auto;
+      width: 10%;
+
+    }
+
+    #btn {
+      /* height: 50px;
+      width: 100px; */
+      margin-top: 50px; 
+      margin-bottom: 30px;
+      /* margin-top: 8rem; */
+    /* margin: auto; */
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    color: white;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .gg111{
+      display: inline;
+      margin-left: 50px;
+    }
+
+    label{
+      font-size: 20px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    input{
+      font-size: 15px;
+      color: rgb(0, 110, 255);
+      margin-top: 0;
+      height: 20px;
+      border-radius: 5px;
+      
+    }
+
+    .currentdata{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    #currentdata{
+      font-size: 30px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    select{
+      margin-left: 5px;
+      font-size: 15px;
+      margin-top: 0;
+      height: 30px;
+      border-radius: 5px;
+
+    }
+  </style>
 </head>
+
 <body>
-  <h3>Update Stock</h3>
-  <form action="/update" method="post">
-  
-  <label for="id">Blood Bank id</label>
-  <input type="text" name='id'>
-  
-  <label for="bg">Stock to Change blood group</label>
-  <select name="bloodgroup" id="bloodgroup" required>
-  <option value="a_pos">A +ve</option>
-  <option value="b_pos">B +ve</option>
-  <option value="o_pos">O +ve</option>
-  <option value="ab_pos">AB +ve</option>
-  <option value="a_neg">A -ve</option>
-  <option value="b_neg">B -ve</option>
-  <option value="o_neg">O -ve</option>
-  <option value="ab_neg">AB -ve</option>
-  </select>
-  
-  <label for="stock">Updated Stock</label>
-  <input type="text" name="stock">
-  
-  <button id="btn" value="submit">UPDATE</button>
-  
-  </form> 
-  
-      <h3>Current Data Of Blood Stock</h3>
-      <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Blood Bank Name</th>
-              <th scope="col">city</th>
-              <th id="bgdata" scope="col">A +ve </th>
-              <th id="bgdata" scope="col">B +ve </th>
-              <th id="bgdata" scope="col">O +ve </th>
-              <th id="bgdata" scope="col">AB +ve </th>
-              <th id="bgdata" scope="col">A -ve </th>
-              <th id="bgdata" scope="col">B -ve </th>
-              <th id="bgdata" scope="col">O -ve </th>
-              <th id="bgdata" scope="col">AB -ve </th>
-            </tr>
-          </thead>
-          <tbody>
-              <%bloodbanklist.forEach(bloodbank=>{%>
-              <tr> <td><%=bloodbank.bid %></td>       
-                  <td id="bbname"><%=bloodbank.bloodbankname %></td>
-                  <td><%=bloodbank.city %></td>
-                  <td><%=bloodbank.a_pos %></td>
-                  <td><%=bloodbank.b_pos %></td>
-                  <td><%=bloodbank.o_pos %></td>
-                  <td><%=bloodbank.ab_pos %></td>
-                  <td><%=bloodbank.a_neg %></td>
-                  <td><%=bloodbank.b_neg %></td>
-                  <td><%=bloodbank.o_neg %></td>
-                  <td><%=bloodbank.ab_neg %></td>              
-  
-              </tr>
-          <%})%>
-          </tbody>
-       
-        </table>
+
+
+  <div class="toooop">
+
+    <div id="ggg" class="headddd">
+      <h3 id="udpatestock">Update Stock</h3>
+    </div>
+
+  </div>
+
+  <div class="oppptions">
+    <form action="/update" method="post">
+      <div class="gg111">
+        <label for="id">Blood Bank id</label>
+        <input type="text" name='id'>
+      </div>
+
+      <div class="gg111">
+      <label id="ggg" for="bg">Stock to Change blood group</label>
+      <select name="bloodgroup" id="bloodgroup" required>
+        <option value="a_pos">A +ve</option>
+        <option value="b_pos">B +ve</option>
+        <option value="o_pos">O +ve</option>
+        <option value="ab_pos">AB +ve</option>
+        <option value="a_neg">A -ve</option>
+        <option value="b_neg">B -ve</option>
+        <option value="o_neg">O -ve</option>
+        <option value="ab_neg">AB -ve</option>
+      </select>
+    </div>
+
+      <div class="gg111">
+      <label id="ggg" for="stock">Updated Stock</label>
+      <input type="text" name="stock">
+    </div>
+
+  </div>
+
+  <div class="updtebtn"><button id="btn" value="submit">UPDATE</button></div>
+
+
+
+
+
+
+  </form>
+
+  <div class="currentdata">
+  <h3 id="currentdata">Current Data Of Blood Stock</h3>
+</div>
+
+  <table class="table">
+    <thead>
+      <tr id="header">
+        <th scope="col">Id</th>
+        <th scope="col">Blood Bank Name</th>
+        <th scope="col">city</th>
+        <th id="bgdata" scope="col">A +ve </th>
+        <th id="bgdata" scope="col">B +ve </th>
+        <th id="bgdata" scope="col">O +ve </th>
+        <th id="bgdata" scope="col">AB +ve </th>
+        <th id="bgdata" scope="col">A -ve </th>
+        <th id="bgdata" scope="col">B -ve </th>
+        <th id="bgdata" scope="col">O -ve </th>
+        <th id="bgdata" scope="col">AB -ve </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%bloodbanklist.forEach(bloodbank=>{%>
+        <tr>
+          <td>
+            <%=bloodbank.bid %>
+          </td>
+          <td id="bbname">
+            <%=bloodbank.bloodbankname %>
+          </td>
+          <td>
+            <%=bloodbank.city %>
+          </td>
+          <td>
+            <%=bloodbank.a_pos %>
+          </td>
+          <td>
+            <%=bloodbank.b_pos %>
+          </td>
+          <td>
+            <%=bloodbank.o_pos %>
+          </td>
+          <td>
+            <%=bloodbank.ab_pos %>
+          </td>
+          <td>
+            <%=bloodbank.a_neg %>
+          </td>
+          <td>
+            <%=bloodbank.b_neg %>
+          </td>
+          <td>
+            <%=bloodbank.o_neg %>
+          </td>
+          <td>
+            <%=bloodbank.ab_neg %>
+          </td>
+
+        </tr>
+        <%})%>
+    </tbody>
+
+  </table>
 
 
 </body>
+
 </html>
