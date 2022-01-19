@@ -1,48 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
-<body>
-    <table class="table">
-        <thead>
-          <tr>
-            
-            <th scope="col">Blood Bank Name</th>
-            <th scope="col">city</th>
-            <th scope="col">A +ve </th>
-            <th scope="col">B +ve </th>
-            <th scope="col">O +ve </th>
-            <th scope="col">AB +ve </th>
-            <th scope="col">A -ve </th>
-            <th scope="col">B -ve </th>
-            <th scope="col">O -ve </th>
-            <th scope="col">AB -ve </th>
-          </tr>
-        </thead>
-        <tbody>
-            <%bloodbanklist.forEach(bloodbank=>{%>
-            <tr>        
-                <td ><%=bloodbank.bloodbankname %></td>
-                <td><%=bloodbank.city %></td>
-                <td><%=bloodbank.a_pos %></td>
-                <td><%=bloodbank.b_pos %></td>
-                <td><%=bloodbank.o_pos %></td>
-                <td><%=bloodbank.ab_pos %></td>
-                <td><%=bloodbank.a_neg %></td>
-                <td><%=bloodbank.b_neg %></td>
-                <td><%=bloodbank.o_neg %></td>
-                <td><%=bloodbank.ab_neg %></td>              
 
-            </tr>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+
+  <div class="heading">
+    <h1>Blood Bank Directory</h1>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr id="header">
+
+        <th scope="col">Blood Bank Name</th>
+        <th scope="col">city</th>
+        <th id="bgdata" scope="col">A +ve </th>
+        <th id="bgdata" scope="col">B +ve </th>
+        <th id="bgdata" scope="col">O +ve </th>
+        <th id="bgdata" scope="col">AB +ve </th>
+        <th id="bgdata" scope="col">A -ve </th>
+        <th id="bgdata" scope="col">B -ve </th>
+        <th id="bgdata" scope="col">O -ve </th>
+        <th id="bgdata" scope="col">AB -ve </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%bloodbanklist.forEach(bloodbank=>{%>
+        <tr>
+          <td id="bbname">
+            <%=bloodbank.bloodbankname %>
+          </td>
+          <td>
+            <%=bloodbank.city %>
+          </td>
+          <td>
+            <%=bloodbank.a_pos %>
+          </td>
+          <td>
+            <%=bloodbank.b_pos %>
+          </td>
+          <td>
+            <%=bloodbank.o_pos %>
+          </td>
+          <td>
+            <%=bloodbank.ab_pos %>
+          </td>
+          <td>
+            <%=bloodbank.a_neg %>
+          </td>
+          <td>
+            <%=bloodbank.b_neg %>
+          </td>
+          <td>
+            <%=bloodbank.o_neg %>
+          </td>
+          <td>
+            <%=bloodbank.ab_neg %>
+          </td>
+
+        </tr>
         <%})%>
-        </tbody>
-      </table>
-    
-    
+    </tbody>
+  </table>
+
+
 </body>
+
 </html>
