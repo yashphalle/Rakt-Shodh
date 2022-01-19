@@ -2,6 +2,10 @@ const mongoose=require('mongoose');
 const express=require('express');
 const ejs=require('ejs');
 const app=express();
+const path=require('path');
+var bodyParser=require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+const { stringify } = require('querystring');
 app.set('view engine','ejs');
 app.use('/public', express.static('public'));
 
@@ -30,6 +34,7 @@ const bloodbankSchema={
     
 }
 const Bank =mongoose.model('bloodbank',bloodbankSchema);
+
 //table of all blood donors
 app.get('/dir',(req,res)=>{
     Blood.find({},function(err,blooddata){
