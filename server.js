@@ -57,8 +57,9 @@ app.get('/dir',(req,res)=>{
     })
     
 })
-//table of all blood banks
 
+
+//table of all blood banks
 app.get('/bloodbankdir',(req,res)=>{
     Bank.find({},function(err,bloodbank){
         res.render('bloodbankdir',{
@@ -67,6 +68,20 @@ app.get('/bloodbankdir',(req,res)=>{
     })
     
 })
+
+
+//admin page
+app.get('/admin',(req,res)=>{
+
+    Bank.find({},function(err,bloodbank){
+        res.render('admin',{
+            bloodbanklist:bloodbank
+        })
+    })
+
+    
+})
+
 //find blood bank option form
 app.get('/findbloodbank',(req,res)=>{
     
@@ -196,10 +211,10 @@ app.post("/request",(req,res)=>{
         
   
           const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
-const client = require('twilio')(accountSid, authToken); 
+          const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
+          const client = require('twilio')(accountSid, authToken); 
  
-client.messages 
+        client.messages 
       .create({ 
          body: 'hii',  
          messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5',      
@@ -218,7 +233,9 @@ client.messages
         res.send("sms sent!!")
       })
 
-
+app.get("/camp",(req,res)=>{
+        res.render('camp')
+    })
 
 app.listen(3000,function(){
     console.log("connected........");
