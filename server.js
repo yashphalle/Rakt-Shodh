@@ -63,15 +63,7 @@ const requestdataSchema={
 
 const Request =mongoose.model('requestdata',requestdataSchema);
 
-<<<<<<< Updated upstream
 
-=======
-app.get('/',(req,res)=>{
-   res.render(index)
-    
-})
-//table of all blood donors
->>>>>>> Stashed changes
 app.get('/dir',(req,res)=>{
     Blood.find({},function(err,blooddata){
         res.render('dir',{
@@ -119,6 +111,7 @@ app.get('/admin',(req,res)=>{
 
 
 // })
+
 //for finding user//
 app.post('/find',(req,res)=>{
     try{
@@ -188,7 +181,6 @@ app.post('/sms',(req,res)=>{
 
 
 
-<<<<<<< Updated upstream
 
 // app.get('/sms',(req,res)=>{
 //     res.send("sent")
@@ -235,16 +227,6 @@ gbloodgroup=req.body.bloodgroup;
 
 const findbloodbank=async()=>{
 var bloodbanklist;
-=======
-//after submitting option form    
-app.post("/request",(req,res)=>{
-    const sendsms=async()=>{
-    gstate=req.body.state;
-    gcity=req.body.city;
-    gbloodgroup=req.body.bloodgroup;
-    var donerlist=[];
-
->>>>>>> Stashed changes
     switch (gbloodgroup) {
         case "a_pos":
             const bloodbanklista_pos= await Bank.find({       $and:[          {city:gcity},  { a_pos:{$gt:0}}        ]           });
@@ -291,7 +273,6 @@ app.post("/request",(req,res)=>{
             res.render('resultbloodbank',{bloodbanklist})
             break;
     }
-<<<<<<< Updated upstream
 
     
 }
@@ -386,28 +367,6 @@ switch (gbloodgroup) {
             // const z_neg_doner= await Blood.find({ bg:a_neg})
             // donerlist=z_neg_doner;
             break;
-=======
-    donerlist.forEach(donerdata=>
-        {
-        var gnumber=donerdata.number;
-        
-  
-          const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-          const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
-          const client = require('twilio')(accountSid, authToken); 
- 
-        client.messages 
-      .create({ 
-         body: 'hii', 
-         from: '+17722910649',
-         to: gnumber 
-       }) 
-      .then(message => console.log(message.sid)) 
-   
-            
-      })
-      }
->>>>>>> Stashed changes
         
 }
 
@@ -558,5 +517,3 @@ app.listen(3000,function(){
     console.log("connected........");
 
 })
-
-
