@@ -133,51 +133,51 @@ app.post('/find',(req,res)=>{
 })
 
 //for sending sms from name
-app.post('/sms',(req,res)=>{
+// app.post('/sms',(req,res)=>{
 
-    var gname2=req.body.name2;
+//     var gname2=req.body.name2;
 
-    const find=async()=>{
-    const resultdata2= await Blood.find({name :gname2 });
-    //-------------------------------------------------------
-    const resultList2=resultdata2;
-    resultList2.forEach(resultdata2=>{
-    var gnumber=resultdata2.number
-    const Vonage = require('@vonage/server-sdk')
+//     const find=async()=>{
+//     const resultdata2= await Blood.find({name :gname2 });
+//     //-------------------------------------------------------
+//     const resultList2=resultdata2;
+//     resultList2.forEach(resultdata2=>{
+//     var gnumber=resultdata2.number
+//     const Vonage = require('@vonage/server-sdk')
     
-        const vonage = new Vonage({
-          apiKey: "48a9d9d9",
-          apiSecret: "uybxdDjP3mjqeCK4"
-        })
+//         const vonage = new Vonage({
+//           apiKey: "48a9d9d9",
+//           apiSecret: "uybxdDjP3mjqeCK4"
+//         })
         
-        const from = "Vonage APIs"
-        const to = gnumber
+//         const from = "Vonage APIs"
+//         const to = gnumber
         
-        // const to = "918329073587"
-        const text = `hiii ${gname2}`
+//         // const to = "918329073587"
+//         const text = `hiii ${gname2}`
         
-        vonage.message.sendSms(from, to, text, (err, responseData) => {
-            if (err) {
-                console.log(err);
-            } else {
-                if(responseData.messages[0]['status'] === "0") {
-                    console.log("Message sent successfully.");
-                } else {
-                    console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
-                }
-            }
-        })
+//         vonage.message.sendSms(from, to, text, (err, responseData) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 if(responseData.messages[0]['status'] === "0") {
+//                     console.log("Message sent successfully.");
+//                 } else {
+//                     console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
+//                 }
+//             }
+//         })
     
         
-        }
+//         }
         
-    )}
+//     )}
 
     
-    find();
-    res.send("SMS Send successfully!!!")
-    // res.render('sms',{resultList2:resultdata2})    
-})
+//     find();
+//     res.send("SMS Send successfully!!!")
+//     // res.render('sms',{resultList2:resultdata2})    
+// })
 
 
 
@@ -286,37 +286,101 @@ app.get("/request",(req,res)=>{
 
 app.post("/request",(req,res)=>{
 
-    
+
+    // let newrequest=new Request({
+    //     rname:req.body.rname,       
+    //     rstate:req.body.rstate,
+    //     rcity:req.body.rcity,
+    //     rbg:req.body.rbloodgroup,
+    //     rnumber:req.body.rnumber
+    // });
+    //     newrequest.save();
+    const sendsms=async()=>{
+
+gstate=req.body.rstate;
+gcity=req.body.rcity;
+gbloodgroup=req.body.rbloodgroup;
+var donerlist;
 
 
-    let newrequest=new Request({
-        rname:req.body.rname,       
-        rstate:req.body.rstate,
-        rcity:req.body.rcity,
-        rbg:req.body.rbloodgroup,
-        rnumber:req.body.rnumber
-    });
-        newrequest.save();
+switch (gbloodgroup) {
+            case "a_pos":
+                const a_pos_doner= await Blood.find({   $and:[  {bg:"a_pos"},    {city:gcity}  ]     })
+                donerlist=a_pos_doner;
+                break;
+            case "b_pos":
+                const b_pos_doner= await Blood.find({$and:  [{bg:"b_pos"},{city:gcity}]})
+                donerlist=b_pos_doner;
+                break;
+            case "o_pos":
+                const o_pos_doner= await Blood.find({$and:  [{bg:"o_pos"},{city:gcity}]})
+                donerlist=o_pos_doner;
+                break;
+            case "ab_pos":
+                const ab_pos_doner= await Blood.find({$and:  [{bg:"ab_pos"},{city:gcity}]})
+                donerlist=ab_pos_doner;
+                break;
+        
+            case "a_neg":
+                const a_neg_doner= await Blood.find({$and:  [{bg:"a_neg"},{city:gcity}]})
+                donerlist=a_neg_doner;
+                break;
+            case "b_neg":
+                const b_neg_doner= await Blood.find({$and:  [{bg:"b_neg"},{city:gcity}]})
+                donerlist=b_neg_doner;
+                break;
+            case "o_neg":
+                const o_neg_doner= await Blood.find({$and:  [{bg:"o_neg"},{city:gcity}]})
+                donerlist=o_neg_doner;
+                break;
+            case "ab_neg":
+                const ab_neg_doner= await Blood.find({$and:  [{bg:"ab_neg"},{city:gcity}]})
+                donerlist=ab_neg_doner;
+                break;
+            default:
+                
+                    const z_neg_doner= await Blood.find({ bg:"a_neg"})
+                    donerlist=z_neg_doner;
+                    break;
+                
+        }
 
+        donerlist.forEach(donerdata=>
+            {
+            var gnumber=donerdata.number;
+          
+            
 
+            const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
+            const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
+            const client = require('twilio')(accountSid, authToken); 
+          
+                client.messages
+                    .create({
+                        body: 'Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.',
+                        messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
+                        to: `${gnumber}`,
+                        
+                    })
+                    .then(message => console.log(message.sid));
+              
+                    
+         })
+        
+                }
+sendsms();
 
-
-
-
-
-
-
-
-    res.send("request sent!")
+res.send("sms sent!")
+                
 })
 
-app.get("/request2",(req,res)=>{
+// app.get("/request2",(req,res)=>{
 
-const sendsms=async()=>{
-gstate=req.body.state;
-gcity=req.body.city;
-gbloodgroup=req.body.bloodgroup;
-var donerlist;
+// const sendsms=async()=>{
+// gstate=req.body.state;
+// gcity=req.body.city;
+// gbloodgroup=req.body.bloodgroup;
+// var donerlist;
 
 
 // Request.find({},function(err,requestdata){
@@ -328,83 +392,85 @@ var donerlist;
 // requestList.forEach(requestdata=>{
 //     var gcity=requestdata.rcity;
 //     var gbloodgroup=requestdata.rbg
-switch (gbloodgroup) {
-    case "a_pos":
-        const a_pos_doner= await Blood.find({   $and:[  {bg:"a_pos"},    {city:gcity}  ]     })
-        donerlist=a_pos_doner;
-        break;
-    case "b_pos":
-        const b_pos_doner= await Blood.find({$and:  [{bg:"b_pos"},{city:gcity}]})
-        donerlist=b_pos_doner;
-        break;
-    case "o_pos":
-        const o_pos_doner= await Blood.find({$and:  [{bg:"o_pos"},{city:gcity}]})
-        donerlist=o_pos_doner;
-        break;
-    case "ab_pos":
-        const ab_pos_doner= await Blood.find({$and:  [{bg:"ab_pos"},{city:gcity}]})
-        donerlist=ab_pos_doner;
-        break;
+// switch (gbloodgroup) {
+//     case "a_pos":
+//         const a_pos_doner= await Blood.find({   $and:[  {bg:"a_pos"},    {city:gcity}  ]     })
+//         donerlist=a_pos_doner;
+//         break;
+//     case "b_pos":
+//         const b_pos_doner= await Blood.find({$and:  [{bg:"b_pos"},{city:gcity}]})
+//         donerlist=b_pos_doner;
+//         break;
+//     case "o_pos":
+//         const o_pos_doner= await Blood.find({$and:  [{bg:"o_pos"},{city:gcity}]})
+//         donerlist=o_pos_doner;
+//         break;
+//     case "ab_pos":
+//         const ab_pos_doner= await Blood.find({$and:  [{bg:"ab_pos"},{city:gcity}]})
+//         donerlist=ab_pos_doner;
+//         break;
 
-    case "a_neg":
-        const a_neg_doner= await Blood.find({$and:  [{bg:"a_neg"},{city:gcity}]})
-        donerlist=a_neg_doner;
-        break;
-    case "b_neg":
-        const b_neg_doner= await Blood.find({$and:  [{bg:"b_neg"},{city:gcity}]})
-        donerlist=b_neg_doner;
-        break;
-    case "o_neg":
-        const o_neg_doner= await Blood.find({$and:  [{bg:"o_neg"},{city:gcity}]})
-        donerlist=o_neg_doner;
-        break;
-    case "ab_neg":
-        const ab_neg_doner= await Blood.find({$and:  [{bg:"ab_neg"},{city:gcity}]})
-        donerlist=ab_neg_doner;
-        break;
-    default:
+//     case "a_neg":
+//         const a_neg_doner= await Blood.find({$and:  [{bg:"a_neg"},{city:gcity}]})
+//         donerlist=a_neg_doner;
+//         break;
+//     case "b_neg":
+//         const b_neg_doner= await Blood.find({$and:  [{bg:"b_neg"},{city:gcity}]})
+//         donerlist=b_neg_doner;
+//         break;
+//     case "o_neg":
+//         const o_neg_doner= await Blood.find({$and:  [{bg:"o_neg"},{city:gcity}]})
+//         donerlist=o_neg_doner;
+//         break;
+//     case "ab_neg":
+//         const ab_neg_doner= await Blood.find({$and:  [{bg:"ab_neg"},{city:gcity}]})
+//         donerlist=ab_neg_doner;
+//         break;
+//     default:
         
-            // const z_neg_doner= await Blood.find({ bg:a_neg})
-            // donerlist=z_neg_doner;
-            break;
+//             // const z_neg_doner= await Blood.find({ bg:a_neg})
+//             // donerlist=z_neg_doner;
+//             break;
         
-}
+// }
 
 
-donerlist.forEach(donerdata=>
-  {
-  var gnumber=donerdata.number
+// donerlist.forEach(donerdata=>
+//   {
+//   var gnumber=donerdata.number
 
   
-  const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-  const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
-  const client = require('twilio')(accountSid, authToken); 
+//   const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
+//   const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
+//   const client = require('twilio')(accountSid, authToken); 
 
-      client.messages
-          .create({
-              body: 'Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.',
-              from: '+17722910649',
-              to: gnumber,
+//       client.messages
+//           .create({
+//               body: 'Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.',
+//               from: '+17722910649',
+//               to: gnumber,
               
-          })
-          .then(message => console.log(message.sid));
+//           })
+//           .then(message => console.log(message.sid));
     
       
-})
-}
+// })
+
   
 
 
-  sendsms();
+//   sendsms();
 
-  res.send("sms sent!!")
+//   res.send("sms sent!!")
 
-})
+// })
 
 // app.get("/adminreqclear",(req,res)=>{
 // res.render('adminreqclear')
 
 // })
+
+
 app.get("/adminreqclear",(req,res)=>{
 
     Request.find({},function(err,requestdata){
