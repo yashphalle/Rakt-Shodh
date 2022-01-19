@@ -278,22 +278,46 @@ nav ul li:hover {
 .container3 {
     margin-top: 10%;
     font-size: 20px;
-    height: 50vh;
+    height: 70vh;
     background-color: #2196f3;
     text-align: center;
+    color: white;
 }
 
 .container3 h2 {
     font-size: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding-top: 30px;
+    padding-top: 10px;
     color: white;
     align-items: center;
 }
 
+
+
 .container3 p {
+    padding: 10px;
+    font-size: 30px;
     padding-top: 20px;
+    text-align: left;
+    font-weight: bolder;
+    color:white;
+    border: solid white 5px;
+    border-radius: 10px;
+    
 }
+
+/* .resize .infopara{
+    margin:10px;
+    display: inline-block;
+}
+#mydiv1,#mydiv2,#mydiv3{
+    height: 350px;
+    width: 350px;
+    display: inline-block;
+
+} */
+
+
 
 .table {
 
