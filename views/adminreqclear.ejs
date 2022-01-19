@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr id="header">
+            
+            <th scope="col"> Requestor's Name</th>
+           
+            <th scope="col">State</th>
+            <th scope="col">city</th>
+            <th scope="col">city</th>
+            <th scope="col">phone number</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%requestList.forEach(requestdata=>{%>
+            <tr>        
+                <td><%=requestdata.rname %></td>
+                <td><%=requestdata.rstate %></td>
+                <td><%=requestdata.rcity %></td>
+                <td><%=requestdata.rbg %></td>               
+                <td><%=requestdata.rnumber %></td>
+                
+            </tr>
+        <%})%>
+        </tbody>
+      </table>
+      <a href="/request2"> <button id="btn">clear</button></a>
+</body>
+</html>

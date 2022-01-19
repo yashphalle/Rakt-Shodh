@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/table.css">
-    <title>Document</title>
     
+    <title>Document</title>
+    <link rel="stylesheet" href="css/table.css">
 </head>
 <body>
   
@@ -14,9 +14,10 @@
 
    <table class="table">
     <thead>
-      <tr>
+      <tr id="header">
         
         <th scope="col">name</th>
+       
         <th scope="col">blood group</th>
         <th scope="col">city</th>
         <th scope="col">phone number</th>
@@ -25,7 +26,7 @@
     <tbody>
         <%bloodList.forEach(blooddata=>{%>
         <tr>        
-            <td ><%= blooddata.name %></td>
+            <td id="bbname"><%= blooddata.name %></td>
             
             <td><%=blooddata.bg %></td>
             <td><%=blooddata.city %></td>
