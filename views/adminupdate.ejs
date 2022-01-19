@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Update Stock</h3>
+<form action="/update" method="post">
+
+<label for="id">Blood Bank id</label>
+<input type="text" name='id'>
+
+<label for="bg">Stock to Change blood group</label>
+<select name="bloodgroup" id="bloodgroup" required>
+<option value="a_pos">A +ve</option>
+<option value="b_pos">B +ve</option>
+<option value="o_pos">O +ve</option>
+<option value="ab_pos">AB +ve</option>
+<option value="a_neg">A -ve</option>
+<option value="b_neg">B -ve</option>
+<option value="o_neg">O -ve</option>
+<option value="ab_neg">AB -ve</option>
+</select>
+
+<label for="stock">Updated Stock</label>
+<input type="text" name="stock">
+
+<button id="btn" value="submit">UPDATE</button>
+
+</form> 
+
+    <h3>Current Data Of Blood Stock</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Blood Bank Name</th>
+            <th scope="col">city</th>
+            <th id="bgdata" scope="col">A +ve </th>
+            <th id="bgdata" scope="col">B +ve </th>
+            <th id="bgdata" scope="col">O +ve </th>
+            <th id="bgdata" scope="col">AB +ve </th>
+            <th id="bgdata" scope="col">A -ve </th>
+            <th id="bgdata" scope="col">B -ve </th>
+            <th id="bgdata" scope="col">O -ve </th>
+            <th id="bgdata" scope="col">AB -ve </th>
+          </tr>
+        </thead>
+        <tbody>
+            <%bloodbanklist.forEach(bloodbank=>{%>
+            <tr> <td><%=bloodbank.bid %></td>       
+                <td id="bbname"><%=bloodbank.bloodbankname %></td>
+                <td><%=bloodbank.city %></td>
+                <td><%=bloodbank.a_pos %></td>
+                <td><%=bloodbank.b_pos %></td>
+                <td><%=bloodbank.o_pos %></td>
+                <td><%=bloodbank.ab_pos %></td>
+                <td><%=bloodbank.a_neg %></td>
+                <td><%=bloodbank.b_neg %></td>
+                <td><%=bloodbank.o_neg %></td>
+                <td><%=bloodbank.ab_neg %></td>              
+
+            </tr>
+        <%})%>
+        </tbody>
+     
+      </table>
+
+</body>
+</html>

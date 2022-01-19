@@ -1,86 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/findbloodbank.css">
     <title>Document</title>
-    
-    
+
+    <link rel="stylesheet" href="css/findbloodbank.css">
 </head>
+
 <body>
+
+    <div class="heading">
+        <h1>Search for Blood Bank in Your Region</h1>
+    </div>
+
     <div id="searchform">
-    <form action="/findbloodbank" method="POST">
-<label for="state">State</label>
-<select name="state" id="state">
-<option value="andhra pradesh">Andhra Pradesh</option>
-<option value="andaman and nicobar islands">Andaman and Nicobar Islands</option>
-<option value="arunachal pradesh">Arunachal Pradesh</option>
-<option value="assam">Assam</option>
-<option value="bihar">Bihar</option>
-<option value="chandigarh">Chandigarh</option>
-<option value="chhattisgarh">Chhattisgarh</option>
-<option value="dadar and nagar haveli">Dadar and Nagar Haveli</option>
-<option value="daman and diu">Daman and Diu</option>
-<option value="delhi">Delhi</option>
-<option value="lakshadweep">Lakshadweep</option>
-<option value="puducherry">Puducherry</option>
-<option value="goa">Goa</option>
-<option value="gujarat">Gujarat</option>
-<option value="haryana">Haryana</option>
-<option value="himachal pradesh">Himachal Pradesh</option>
-<option value="jammu and kashmir">Jammu and Kashmir</option>
-<option value="jharkhand">Jharkhand</option>
-<option value="karnataka">Karnataka</option>
-<option value="kerala">Kerala</option>
-<option value="madhya pradesh">Madhya Pradesh</option>
-<option value="maharashtra">Maharashtra</option>
-<option value="manipur">Manipur</option>
-<option value="meghalaya">Meghalaya</option>
-<option value="mizoram">Mizoram</option>
-<option value="nagaland">Nagaland</option>
-<option value="odisha">Odisha</option>
-<option value="punjab">Punjab</option>
-<option value="rajasthan">Rajasthan</option>
-<option value="sikkim">Sikkim</option>
-<option value="tamil nadu">Tamil Nadu</option>
-<option value="telangana">Telangana</option>
-<option value="tripura">Tripura</option>
-<option value="uttar pradesh">Uttar Pradesh</option>
-<option value="uttarakhand">Uttarakhand</option>
-<option value="west bengal">West Bengal</option>
-</select>
 
-<label for="city">City</label>
-<select name="city" id="city">
-    <option value="pune">Pune</option>
-    <option value="mumbai">Mumbai</option>
-    <option value="kolhapur">Kolhapur</option>
-    <option value="yavatmal">Yavatmal</option>
-</select>
+        <form action="/findbloodbank" method="POST">
+            <label for="state">State</label>
+            <select name="state" id="state">
+                <option value=>Select</option>
+                <option value="andhra pradesh">Andhra Pradesh</option>
+                <option value="andaman and nicobar islands">Andaman and Nicobar Islands</option>
+                <option value="arunachal pradesh">Arunachal Pradesh</option>
+                <option value="assam">Assam</option>
+                <option value="bihar">Bihar</option>
+                <option value="chandigarh">Chandigarh</option>
+                <option value="chhattisgarh">Chhattisgarh</option>
+                <option value="dadar and nagar haveli">Dadar and Nagar Haveli</option>
+                <option value="daman and diu">Daman and Diu</option>
+                <option value="delhi">Delhi</option>
+                <option value="lakshadweep">Lakshadweep</option>
+                <option value="puducherry">Puducherry</option>
+                <option value="goa">Goa</option>
+                <option value="gujarat">Gujarat</option>
+                <option value="haryana">Haryana</option>
+                <option value="himachal pradesh">Himachal Pradesh</option>
+                <option value="jammu and kashmir">Jammu and Kashmir</option>
+                <option value="jharkhand">Jharkhand</option>
+                <option value="karnataka">Karnataka</option>
+                <option value="kerala">Kerala</option>
+                <option value="madhya pradesh">Madhya Pradesh</option>
+                <option value="maharashtra">Maharashtra</option>
+                <option value="manipur">Manipur</option>
+                <option value="meghalaya">Meghalaya</option>
+                <option value="mizoram">Mizoram</option>
+                <option value="nagaland">Nagaland</option>
+                <option value="odisha">Odisha</option>
+                <option value="punjab">Punjab</option>
+                <option value="rajasthan">Rajasthan</option>
+                <option value="sikkim">Sikkim</option>
+                <option value="tamil nadu">Tamil Nadu</option>
+                <option value="telangana">Telangana</option>
+                <option value="tripura">Tripura</option>
+                <option value="uttar pradesh">Uttar Pradesh</option>
+                <option value="uttarakhand">Uttarakhand</option>
+                <option value="west bengal">West Bengal</option>
+            </select>
 
-
-<label for="bloodgroup">Blood Group</label>
-<select name="bloodgroup" id="bloodgroup">
-<option value="a_pos">A +ve</option>
-<option value="b_pos">B +ve</option>
-<option value="o_pos">O +ve</option>
-<option value="ab_pos">AB +ve</option>
-
-<option value="a_neg">A -ve</option>
-<option value="b_neg">B -ve</option>
-<option value="o_neg">O -ve</option>
-<option value="ab_neg">AB -ve</option>
-</select>
-
-</div>
+            <label for="city">City</label>
+            <select name="city" id="city">
+                <option value=>Select</option>
+                <option value="pune">Pune</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="kolhapur">Kolhapur</option>
+                <option value="yavatmal">Yavatmal</option>
+            </select>
 
 
+            <label for="bloodgroup">Blood Group</label>
+            <select name="bloodgroup" id="bloodgroup">
+                <option value=>Select</option>
+                <option value="a_pos">A +ve</option>
+                <option value="b_pos">B +ve</option>
+                <option value="o_pos">O +ve</option>
+                <option value="ab_pos">AB +ve</option>
 
-<button id="btn" value="submit">Submit</button>
+                <option value="a_neg">A -ve</option>
+                <option value="b_neg">B -ve</option>
+                <option value="o_neg">O -ve</option>
+                <option value="ab_neg">AB -ve</option>
+            </select>
+            <div class="btn">
+                <button id="btn3" value="submit">Submit</button>
+            </div>
+    </div>
 
-   
+
+
+
     </form>
 </body>
+
 </html>
