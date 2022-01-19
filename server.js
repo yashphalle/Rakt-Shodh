@@ -180,32 +180,19 @@ app.post("/request",(req,res)=>{
     donerlist.forEach(donerdata=>
         {
         var gnumber=donerdata.number
-        const Vonage = require('@vonage/server-sdk')
         
-            const vonage = new Vonage({
-              apiKey: "48a9d9d9",
-              apiSecret: "uybxdDjP3mjqeCK4"
-            })
-            
-            const from = "Vonage APIs"
-            const to = gnumber
-            
-            // const to = "918329073587"
-            const text = `HELP!! urgent need of ${gn=gbloodgroup} blood group in your area. Please donate blood you are getting chance to save life `
-            
-            vonage.message.sendSms(from, to, text, (err, responseData) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    if(responseData.messages[0]['status'] === "0") {
-                        console.log("Message sent successfully.");
-                    } else {
-                        console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
-                    }
-                }
-            })
         
-            
+            const client = require('twilio')("AC5e289c8926743ec2f28fc3b41fd5d01b", "40384b93b0916050b01cb04474861f5b");
+
+            client.messages
+                .create({
+                    body: 'Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.',
+                    from: '+17722910649',
+                    to: gnumber,
+                    // to:'+919075341267',
+                })
+                .then(message => console.log(message.sid));
+          
           
             
       })
