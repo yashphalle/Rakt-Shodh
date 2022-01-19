@@ -52,7 +52,6 @@ nav ul li:hover {
 .front {
 
     /* display:flex; */
-
     /* border: greenyellow 5px solid; */
     /* display: inline-block; */
     height: 100vh;
@@ -497,4 +496,19 @@ tr:hover {
     transform: scale(1.05);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5), -1px -1px 8px rgba(0, 0, 0, 0);
 
+}
+
+#tabbleheaging{
+    margin-top: 8rem;
+    margin: auto;
+    height: 70px;
+    width: 200px;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    color: white;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
 }
