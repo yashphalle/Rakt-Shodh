@@ -111,6 +111,7 @@ app.get('/admin',(req,res)=>{
 
 
 // })
+
 //for finding user//
 app.post('/find',(req,res)=>{
     try{
@@ -516,5 +517,3 @@ app.listen(3000,function(){
     console.log("connected........");
 
 })
-
-
