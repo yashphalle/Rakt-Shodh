@@ -72,6 +72,8 @@ form{
     align-items: center;
     justify-content: center;
 
+;
+
 }
 
 
@@ -99,6 +101,7 @@ form{
     margin-bottom: 50px;
      height: 40px;
 }
+
 #btn3{
     margin-top: 8rem;
     margin: auto;
