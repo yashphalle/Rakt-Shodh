@@ -232,11 +232,30 @@ app.post("/request",(req,res)=>{
         sendsms();
         res.send("sms sent!!")
       })
-
+//page for organising blood camp
 app.get("/camp",(req,res)=>{
         res.render('camp')
     })
 
+//blood organisation details saving into event data base
+app.post("/adminreqsend",(req,res)=>{
+
+
+        let newevent=new event({
+            oname:req.body.oname,
+            odate:req.body.odate,
+            ostate:req.body.ostate,
+            ocity:req.body.ocity,
+            ovenue:req.body.ovenue,
+            onumber:req.body.onumber});
+            newevent.save();
+        res.render('adminreqsend')
+        
+        // res.render('adminreqsend',{gname,gdate,gcity,gvenue})
+        
+        })
+
+        
 app.listen(3000,function(){
     console.log("connected........");
 
