@@ -44,8 +44,10 @@ const eventdataSchema={
     ostate:String,
     ocity:String,
     ovenue:String,
+    obloodgroup:String,
     onumber:String
 }
+
 const event=mongoose.model('eventdata',eventdataSchema);
 app.get('/',function(req,res){
 res.render('index')
@@ -357,7 +359,7 @@ switch (gbloodgroup) {
           
                 client.messages
                     .create({
-                        body: 'Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.',
+                        body: 'Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.For donation visit Rakt-Shodh Website or contact nearest blood bank',
                         messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
                         to: `${gnumber}`,
                         
@@ -494,12 +496,87 @@ let newevent=new event({
     odate:req.body.odate,
     ostate:req.body.ostate,
     ocity:req.body.ocity,
+    obloodgroup:req.body.obloodgroup,
     ovenue:req.body.ovenue,
     onumber:req.body.onumber});
     newevent.save();
-res.render('adminreqsend')
 
-// res.render('adminreqsend',{gname,gdate,gcity,gvenue})
+
+const sendsms=async()=>{
+   
+    gcity=req.body.ocity;
+    gbloodgroup=req.body.obloodgroup;
+    var donerlist;
+    
+    
+    switch (gbloodgroup) {
+                case "a_pos":
+                    const a_pos_doner= await Blood.find({   $and:[  {bg:"a_pos"},    {city:gcity}  ]     })
+                    donerlist=a_pos_doner;
+                    break;
+                case "b_pos":
+                    const b_pos_doner= await Blood.find({$and:  [{bg:"b_pos"},{city:gcity}]})
+                    donerlist=b_pos_doner;
+                    break;
+                case "o_pos":
+                    const o_pos_doner= await Blood.find({$and:  [{bg:"o_pos"},{city:gcity}]})
+                    donerlist=o_pos_doner;
+                    break;
+                case "ab_pos":
+                    const ab_pos_doner= await Blood.find({$and:  [{bg:"ab_pos"},{city:gcity}]})
+                    donerlist=ab_pos_doner;
+                    break;
+            
+                case "a_neg":
+                    const a_neg_doner= await Blood.find({$and:  [{bg:"a_neg"},{city:gcity}]})
+                    donerlist=a_neg_doner;
+                    break;
+                case "b_neg":
+                    const b_neg_doner= await Blood.find({$and:  [{bg:"b_neg"},{city:gcity}]})
+                    donerlist=b_neg_doner;
+                    break;
+                case "o_neg":
+                    const o_neg_doner= await Blood.find({$and:  [{bg:"o_neg"},{city:gcity}]})
+                    donerlist=o_neg_doner;
+                    break;
+                case "ab_neg":
+                    const ab_neg_doner= await Blood.find({$and:  [{bg:"ab_neg"},{city:gcity}]})
+                    donerlist=ab_neg_doner;
+                    break;
+                default:
+                    
+                        const z_neg_doner= await Blood.find({ city:gcity})
+                        donerlist=z_neg_doner;
+                        break;
+                    
+            }
+    
+            donerlist.forEach(donerdata=>
+                {
+                var gnumber=donerdata.number;
+              
+                
+    
+                const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
+                const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
+                const client = require('twilio')(accountSid, authToken); 
+              
+                    client.messages
+                        .create({
+                            body: 'Blood Donation camp in your area. Please donate blood you have chance to save a life. For more details visit Rakt-Shodh website or nearer blood bank',
+                            messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
+                            to: `${gnumber}`,
+                            
+                        })
+                        .then(message => console.log(message.sid));
+                  
+                        
+             })
+            }
+    
+                    
+    sendsms();
+    res.send("msg sent to all")
 
 })
 
