@@ -372,7 +372,7 @@ switch (gbloodgroup) {
                 }
 sendsms();
 
-res.send("sms sent!")
+res.render('smsnotification')
                 
 })
 
