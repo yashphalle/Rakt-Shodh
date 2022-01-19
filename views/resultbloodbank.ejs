@@ -1,66 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-      #request{
-        text-decoration: none;
-        color: rgb(253, 250, 249);
-       
-      }
-      #btn{
-        background-color: rgb(0, 209, 0);
-        margin-left: 350px;
-      }
-    </style>
-    <link rel="stylesheet" href="css/table.css">
-</head>
-<body>
-    <table class="table">
-        <thead>
-          <tr  id="header">
-            
-            <th scope="col">Blood Bank Name</th>
-            <th scope="col">city</th>
-            <th id="bgdata" scope="col">A +ve </th>
-            <th id="bgdata" scope="col">B +ve </th>
-            <th id="bgdata" scope="col">O +ve </th>
-            <th id="bgdata" scope="col">AB +ve </th>
-            <th id="bgdata" scope="col">A -ve </th>
-            <th id="bgdata" scope="col">B -ve </th>
-            <th id="bgdata" scope="col">O -ve </th>
-            <th id="bgdata" scope="col">AB -ve </th>
-          </tr>
-        </thead>
-        <tbody>
-            <%bloodbanklist.forEach(bloodbank=>{%>
-            <tr>        
-                <td id="bbname"><%=bloodbank.bloodbankname %></td>
-                <td><%=bloodbank.city %></td>
-                <td><%=bloodbank.a_pos %></td>
-                <td><%=bloodbank.b_pos %></td>
-                <td><%=bloodbank.o_pos %></td>
-                <td><%=bloodbank.ab_pos %></td>
-                <td><%=bloodbank.a_neg %></td>
-                <td><%=bloodbank.b_neg %></td>
-                <td><%=bloodbank.o_neg %></td>
-                <td><%=bloodbank.ab_neg %></td>              
 
-            </tr>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #request {
+      font-size: 30px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      /* text-decoration: none; */
+      /* color: rgb(253, 250, 249); */
+
+    }
+
+    #btn {
+      background-color: rgb(0, 209, 0);
+      margin-left: 350px;
+    }
+
+
+
+
+
+
+    .pop {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.7);
+      /* opacity: 0.7; */
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* display: none; */
+
+
+
+      /* border: 2px red solid; */
+    }
+
+    .modal {
+      width: 500px;
+      height: 500px;
+      background-color: white;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 14px;
+      font-size: 42px;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+
+    .popmsggggg {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      /* border: 2px red solid; */
+      height: 40vh;
+
+    }
+
+    #popmsg {
+      padding: 20px;
+      font-size: 30px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+
+    .closepopbutton{
+      /* border: 2px red solid; */
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #closepopbutton{
+
+
+      margin-top: 8rem;
+    margin: auto;
+    height: 70px;
+    width: 200px;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    color: white;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .requesthere{
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* border: 2px red solid; */
+    }
+    
+    #requesttext{
+      font-size: 30px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    #requestbtn{
+      margin-top: 8rem;
+    margin: auto;
+    height: 70px;
+    width: 200px;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    color: white;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+      /* font-size: 30px; */
+      /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    }
+
+    .bbbttttnnn{
+      margin-bottom: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+  </style>
+
+
+  <link rel="stylesheet" href="css/table.css">
+</head>
+
+<body>
+  <table class="table">
+    <thead>
+      <tr id="header">
+
+        <th scope="col">Blood Bank Name</th>
+        <th scope="col">city</th>
+        <th id="bgdata" scope="col">A +ve </th>
+        <th id="bgdata" scope="col">B +ve </th>
+        <th id="bgdata" scope="col">O +ve </th>
+        <th id="bgdata" scope="col">AB +ve </th>
+        <th id="bgdata" scope="col">A -ve </th>
+        <th id="bgdata" scope="col">B -ve </th>
+        <th id="bgdata" scope="col">O -ve </th>
+        <th id="bgdata" scope="col">AB -ve </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%bloodbanklist.forEach(bloodbank=>{%>
+        <tr>
+          <td id="bbname">
+            <%=bloodbank.bloodbankname %>
+          </td>
+          <td>
+            <%=bloodbank.city %>
+          </td>
+          <td>
+            <%=bloodbank.a_pos %>
+          </td>
+          <td>
+            <%=bloodbank.b_pos %>
+          </td>
+          <td>
+            <%=bloodbank.o_pos %>
+          </td>
+          <td>
+            <%=bloodbank.ab_pos %>
+          </td>
+          <td>
+            <%=bloodbank.a_neg %>
+          </td>
+          <td>
+            <%=bloodbank.b_neg %>
+          </td>
+          <td>
+            <%=bloodbank.o_neg %>
+          </td>
+          <td>
+            <%=bloodbank.ab_neg %>
+          </td>
+
+        </tr>
         <%})%>
-        </tbody>
-     
-      </table>
-      <br>
-      <br>
-      <p> Don't worry if you cannot find blood in these blood banks you can request blood from people in your area</p>
-      <br>
-      <br>
-      <button id="btn">
-        <a id="request"href="/request" text-decoratio> request blood</a>
-      </button>
+    </tbody>
+
+  </table>
+  <!-- <br> -->
+  <!-- <br> -->
+  <!-- <p> Don't worry if you cannot find blood in these blood banks you can request blood from people in your area</p> -->
+  <!-- <br> -->
+  <!-- <br> -->
+
+  <div class="requesthere">
+    <h3 id="requesttext">If Required Result Not Found then , Please Click Below Button to Request</h3>
+  </div>
+
+    <div class="bbbttttnnn">
+      <a id="request" href="/request"><button id="requestbtn">Request Blood</button> </a>
+    </div>
+  
+
+  
+<!-- 
+  <div class="button2" id="button2">
+    <a href="#"><button id="button22">CLICK ME </button></a> -->
+
+  </div>
+
+  <div class="pop">
+    <div class="modal">
+      <div class="close">+</div>
+      <div class="popmsggggg">
+        <h1 id="popmsg">Don't worry if you cannot find blood in these blood banks. We have added option at the END OF PAGE , So you can request blood from people in
+          your area</h1>
+      </div>
+      <div class="closepopbutton">
+        <button id="closepopbutton">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    // document.getElementById('button22').addEventListener('click',
+    //   function () {
+    //     document.querySelector('.pop').style.display = 'flex';
+    //   })
+
+    document.querySelector('.close').addEventListener('click', function () {
+      document.querySelector('.pop').style.display = 'none';
+    })
+
+    document.querySelector('.closepopbutton').addEventListener('click', function () {
+      document.querySelector('.pop').style.display = 'none';
+    })
+  </script>
+
+
 </body>
+
 </html>
