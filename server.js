@@ -35,6 +35,19 @@ const bloodbankSchema={
 }
 const Bank =mongoose.model('bloodbank',bloodbankSchema);
 
+//database for events details
+const eventdataSchema={
+    oname:String,
+    odate:String,
+    ostate:String,
+    ocity:String,
+    ovenue:String,
+    onumber:String
+}
+const event=mongoose.model('eventdata',eventdataSchema);
+
+
+
 //table of all blood donors
 app.get('/dir',(req,res)=>{
     Blood.find({},function(err,blooddata){
