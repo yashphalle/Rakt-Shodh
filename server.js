@@ -90,17 +90,26 @@ app.get('/login',(req,res)=>{
 res.render('login')
     
 })
+
 app.post('/admin',(req,res)=>{
     rusername=req.body.username;
     rpassword=req.body.password;
-       if (rusername=="admin" && rpassword=="1234") {
+       if (rusername==='admin' && rpassword==='1234') {
+        Bank.find({},function(err,bloodbank){
+            res.render('admin',{
+                bloodbanklist:bloodbank
+            })
+            })
+       }
+       
+    
+})
+app.get("/admin2",(req,res)=>{
     Bank.find({},function(err,bloodbank){
         res.render('admin',{
             bloodbanklist:bloodbank
         })
-    })
-       }
-    
+        })
 })
 
 // app.post("/find",(req,res)=>{
