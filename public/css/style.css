@@ -105,13 +105,24 @@ nav ul li:hover {
     }
     
 
-    #imagge{
-        margin-left: 40vw;
+    /* #imagge{ */
+        /* margin-left: 40vw; */
         /* display: flex; */
         /* justify-content: center; */
         /* align-items: center; */
-        width: 10%;
+        
 
+    /* } */
+
+    #immmg{
+        margin-left: 40vw;
+        width:90vw;
+    }
+
+
+    #navv{
+        display: inline-flex;
+        width: 100px;
     }
 
     
