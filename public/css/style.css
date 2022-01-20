@@ -425,7 +425,7 @@ nav ul li:hover {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 10px;
     
-} */ */
+} */ 
 
 /* .resize .infopara{
     margin:10px;
@@ -512,3 +512,31 @@ tr:hover {
     align-items: center;
     justify-content: center;
 }
+
+
+#raktshodh{
+    position:relative;
+    font-size: 50px;
+    color: black;
+}
+
+
+.imagge{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    /* transition: 0.5s; */
+    
+    /* border: 2px red solid; */
+}
+
+.imagge:hover{
+        transition: 0.5s;
+}
+
+
+
+
+

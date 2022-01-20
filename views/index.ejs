@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <meta charset="UTF-8" />
@@ -32,7 +34,19 @@
         </nav>
       </div>
 
+      <div class="imagge">
+      <img id="imagge" src="images\raktshodh.png" alt="" width="700px" onmouseover="onImg.call(this)" onmouseout="outImg.call(this)">
+      
+    </div>
+
+    <!-- <div class="imagge2">
+      <img id="imagge2" src="images\raktshodh_marathi.png" alt="" width="600px">
+    </div> -->
+
+
       <div class="button_shift" id="button_shift">
+        <!-- <h2 id="raktshodh">Rakt Shodh</h2> -->
+        
         <!-- <a href="#ourservices"><img src="/images/downarrow.png" alt="" width="100px" /></a> -->
       </div>
     </div>
@@ -251,6 +265,19 @@
       // offset: 1000,
       duration: 400,
     });
+
+
+    function onImg()
+    {
+      this.setAttribute("src" , "images/raktshodh_marathi.png");
+    }
+
+    function outImg()
+    {
+      this.setAttribute("src" , "images/raktshodh.png");
+    }
+
+
   </script>
 </body>
 
