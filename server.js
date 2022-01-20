@@ -610,7 +610,7 @@ const sendsms=async()=>{
     
                     
     sendsms();
-    res.send("msg sent to all")
+    res.render('smssenttoall')
 
 })
 
