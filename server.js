@@ -373,7 +373,7 @@ switch (gbloodgroup) {
             
 
             const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-            const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
+            const authToken = '8e00b644e93690125de971a68bae3e6e'; 
             const client = require('twilio')(accountSid, authToken); 
           
                 client.messages
@@ -388,7 +388,7 @@ switch (gbloodgroup) {
                     
          })
         
-                }
+        }
 sendsms();
 
 res.render('smsnotification')
@@ -577,7 +577,7 @@ const sendsms=async()=>{
                 
     
                 const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-                const authToken = '4f16b76fdd1d3611d7723c718c702d90'; 
+                const authToken = '8e00b644e93690125de971a68bae3e6e'; 
                 const client = require('twilio')(accountSid, authToken); 
               
                     client.messages
@@ -589,7 +589,22 @@ const sendsms=async()=>{
                         })
                         .then(message => console.log(message.sid));
                   
+                       
                         
+
+//                         const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
+//                         const authToken = '8e00b644e93690125de971a68bae3e6e'; 
+//                         const client = require('twilio')(accountSid, authToken); 
+ 
+// client.messages 
+//       .create({ 
+//          body: 'Blood Donation camp in your area. Please donate blood you have chance to save a life. For more details visit Rakt-Shodh website or nearer blood bank',  
+//          messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5',      
+//          to: `${gnumber}`
+//        }) 
+//       .then(message => console.log(message.sid)) 
+//       .done();
+//              })
              })
             }
     
