@@ -115,6 +115,7 @@ nav ul li:hover {
     }
     
 
+
     /* #imagge{ */
         /* margin-left: 40vw; */
         /* display: flex; */
@@ -289,7 +290,6 @@ nav ul li:hover {
 .services2 h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: linear-gradient(to right, #00F1FF, #3E7CEE);
-    /* background-color:  linear-gradient(to right top, #00f1ff, #00dfff, #00cbff, #00b5ff, #009eff, #318ffb, #4f7ff4, #696dea, #845fe3, #9c4ed9, #b136ca, #c400b9); */
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 
@@ -306,13 +306,12 @@ nav ul li:hover {
 
 .container3 {
     
+    
     font-size: 20px;
     height: 60vh;
     width:1400px;
-    background-color: #2196f3;
     text-align: center;
-    color: white;
- border: black 2 px solid;
+ border: 2px red solid;
  margin: auto;
  margin-top: 10%;
  border-radius: 20px;
@@ -321,16 +320,20 @@ nav ul li:hover {
 
 
 .container3 h2 {
+    margin-top: 30px;
     font-size: 40px;
-   
-    font-family: 'Times New Roman', Times, serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding-top: 10px;
-    color:orangered;
     align-items: center;
-
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 
-
+.container3 ul{
+    
+    margin-top: 30px;
+}
 
 .container3 li {
     padding: 20px;
@@ -338,11 +341,13 @@ nav ul li:hover {
     padding-top: 20px;
     text-align: left;
     font-weight: bolder;
-    color: rgb(46 3 177);
-    font-family: cursive;
-    list-style: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
   
 }
+
+
+
 #indeximg{
     align-items: flex-end;
 }
@@ -356,38 +361,44 @@ nav ul li:hover {
     /* margin-top: 10%; */
     font-size: 20px;
     height: 80vh;
-    background-color: #37fc41;
     text-align: center;
-    color: white;
     margin: auto;
     width:1400px;
     border-radius: 20px;
     margin-bottom: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    border: 2px red solid;
 }
 
 
 .container4 h2 {
     font-size: 40px;
-   
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding-top: 10px;
-    color: rgb(205 0 180);
     align-items: center;
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 
 }
 
 
 
 .container4 li {
+    text-align: center;
     padding: 20px;
     font-size: 30px;
     padding-top: 20px;
     text-align: left;
     font-weight: bolder;
-    color: rgb(0, 99, 16);
-    font-family: cursive;
-    list-style: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
   
+}
+
+.container4 ul{
+    text-align: center;
 }
 
 
@@ -396,7 +407,7 @@ nav ul li:hover {
     background-color: #bdc3c7;
     font-size: 30px;
     height: 40vh;
-  
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     
 
@@ -409,15 +420,14 @@ nav ul li:hover {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     font-size: 40px;
-   
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding-top: 10px;
-    
     align-items: center;
 
 }
 #about li{
     list-style: none;
+    
 }
 
 
@@ -491,7 +501,7 @@ table {
 
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: auto;
-    margin-top: 10%;
+    /* margin-top: 5%; */
     font-size: 20px;
     /* align-items: center; */
     /* justify-content: center; */
@@ -536,21 +546,24 @@ tr:hover {
 
 }
 
-#tabbleheaging{
-    margin-top: 8rem;
-    margin: auto;
-    height: 70px;
-    width: 200px;
-    text-align: center;
-    border-radius: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: linear-gradient(to right, #00F1FF, #3E7CEE);
-    color: white;
-    font-size: 25px;
-    align-items: center;
+
+
+.tbhead{
+    margin-top: 100px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
 }
 
+.tbhead h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(to right, #00F1FF, #3E7CEE);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 40px;
+
+}
 
 #raktshodh{
     position:relative;
