@@ -10,7 +10,8 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-
+const http = require('http'); 
+const hostname = '127.0.0.1'; 
 
 mongoose.connect("mongodb+srv://bloodadmin:1234@cluster0.mre6e.mongodb.net/blooddata?retryWrites=true&w=majority");
 const blooddataSchema={
@@ -672,9 +673,14 @@ res.send("updated...");
 
 
 
+const port=3000;
 
 
-app.listen(3000,function(){
-    console.log("connected........");
+// app.listen(3000,function(){
+//     console.log("connected........");
 
-})
+// })
+
+app.listen(port, hostname, () => {
+    console.log(`HTTP Server listening at http://${hostname}:${port}/`);
+  });
