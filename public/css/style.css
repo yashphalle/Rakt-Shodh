@@ -314,6 +314,8 @@ nav ul li:hover {
 }
 
 .container3 {
+    /* margin-left: 5%; */
+    /* margin-right: 5%; */
     /* display: flex; */
     /* border: 2px red solid; */
     margin-top: 10%;
@@ -345,7 +347,7 @@ nav ul li:hover {
 }
 #indeximg{
     margin-top: 50px;
-    height: 30vh;
+    height: 20vh;
 }
 
 
