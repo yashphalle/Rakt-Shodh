@@ -86,11 +86,12 @@ app.get('/bloodbankdir',(req,res)=>{
 })
 
 
-app.get('/login',(req,res)=>{
 
-res.render('login')
-    
+app.get("/admin_new",(req,res)=>{
+    res.render('admin_new')
 })
+
+
 
 app.post('/admin',(req,res)=>{
     rusername=req.body.username;

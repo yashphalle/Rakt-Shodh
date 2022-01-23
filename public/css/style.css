@@ -43,6 +43,21 @@ nav {
 
 }
 
+nav ul{
+    display: flex;
+}
+
+.adm{
+    margin-left: 67vw;
+    justify-content: flex-end;
+}
+
+.adm li{
+    /* padding: 10px; */
+    font-size: 20px;
+    /* border: 1px red solid; */
+}
+
 nav ul li {
     color:white;
     margin: 30px;

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            /* background-color: bisque; */
+            justify-content: center;
+            align-items: center;
+            /* background: linear-gradient(to right, #00F1FF, #3E7CEE); */
+
+        }
+
+        .container {
+
+            height: 70vh;
+            width: 70vw;
+            /* background-color: aliceblue; */
+            /* background-color: grey; */
+            border-radius: 20px;
+        }
+
+        .content {
+            display: flex;
+            /* border: 2px red solid; */
+            /* background-color: aliceblue; */
+            border-radius: 20px;
+
+        }
+
+        .box {
+            margin: 20px;
+            border: 2px grey solid;
+            border-radius: 20px;
+            height: 400px;
+            transition: 0.5s;
+
+
+        }
+
+        .box h1 {
+            margin-top: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .box:hover {
+            transform: scale(1.1, 1.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+        }
+
+        #box1 img {
+            margin-top: 20px;
+            height: 270px;
+            width: 300px;
+        }
+
+        .user_details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* background-color: aqua; */
+            border: 2px grey solid;
+            border-radius: 20px;
+            height: 70vh;
+            width: 70vw;
+            display: none;
+
+        }
+
+        .user_details img {
+            height: 50px;
+            align-self: flex-start;
+        }
+
+
+        .user_details img:hover {
+            transform: scale(1.1, 1.1);
+            cursor: pointer;
+
+        }
+
+        .back {
+            position: relative;
+            top: 0;
+            left: -30vw;
+            /* border: 2px red solid; */
+        }
+
+        .user_details .input-box {
+            display: grid;
+            margin: 30px;
+
+        }
+
+        .details {
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 30px;
+        }
+
+        input {
+            height: 40px;
+            width: 20vw;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+
+        button {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 27px;
+            height: 40px;
+            width: 10vw;
+            border-radius: 10px;
+            text-align: center;
+            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+           color: white;
+  
+
+        }
+
+        button:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1, 1.1);
+            cursor: pointer;
+        }
+
+
+        #box3 img {
+            margin-top: 20px;
+            height: 300px;
+            width: 300px;
+        }
+
+
+        #box2 img {
+            margin-top: 20px;
+            height: 300px;
+            width: 300px;
+        }
+
+
+        .heading {
+            margin-top: -50px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 70px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="box" id="box1">
+                <h1>User Login</h1>
+                <img src="images/usericon.jpeg" alt="">
+            </div>
+            <div class="box" id="box2">
+                <h1>BloodBank Login</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis distinctio at dolore earum sunt
+                    quidem placeat porro nam? Vitae impedit dolor consectetur necessitatibus quas vel animi, voluptatum
+                    omnis sint quo asperiores officiis architecto provident qui ipsum. Voluptatibus dolorum animi porro
+                    non numquam molestias corporis id, quo in repellat itaque fugit.</p>
+                <!-- <img src="images/bloodbankicon.png" alt=""> -->
+            </div>
+            <div class="box" id="box3">
+                <h1>Admin Login</h1>
+                <img src="images/adminicon.jpeg" alt="">
+            </div>
+
+
+
+        </div>
+
+        <div class="user_details">
+            <div class="back">
+                <img src="/public/images/back-button.png" alt="">
+                
+            </div>
+
+            <div class="heading">User Details</div>
+            <div class="input-box">
+                <span class="details">User Name</span>
+                <input type="text" placeholder="Enter your Full Name">
+
+            </div>
+            <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" placeholder="Enter your Password">
+            </div>
+
+            <div class="btn">
+                <button>SUBMIT</button>
+            </div>
+
+        </div>
+
+
+
+        <script>
+            var box = document.querySelector('#box1');
+
+            box.addEventListener('click', function () {
+                document.querySelector('#box1').style = "display:none;"
+                document.querySelector('#box2').style = "display:none;"
+                document.querySelector('#box3').style = "display:none;"
+                document.querySelector('.user_details').style = "display:flex;"
+            })
+
+
+            var back = document.querySelector('.back');
+
+            back.addEventListener('click', function () {
+                document.querySelector('#box1').style = ""
+                document.querySelector('#box2').style = ""
+                document.querySelector('#box3').style = ""
+                document.querySelector('.user_details').style = "display:none;"
+            })
+
+        </script>
+
+
+</body>
+
+</html>
