@@ -6,6 +6,10 @@
 
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,10 +60,21 @@
     </div> -->
 
 
-    <div class="button_shift" id="button_shift">
-      <!-- <h2 id="raktshodh">Rakt Shodh</h2> -->
+    <div class="counting">
+      <div class="dabbe">
+        <div class="countone">
+          <img src="images/threepeople.png" alt="">
+          
+        <div class="dabba">1000</div>
+        </div>
 
-      <!-- <a href="#ourservices"><img src="/images/downarrow.png" alt="" width="100px" /></a> -->
+        <div class="counttwo">
+          <img id="img2" src="images/blooddrop.png" alt="">
+        <div class="dabba">2000</div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
@@ -316,6 +331,15 @@
     audioArr[0].play()
   })
 </script> -->
+
+<script>
+  $(document).ready(function(){
+    $(".dabba").counterUp({
+      delay:10,
+      time:2500
+    })
+  })
+</script>
 </body>
 
 </html>
