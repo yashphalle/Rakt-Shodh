@@ -50,6 +50,7 @@
 
         .box:hover {
             border: 3px #039be5 solid;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             /* background: linear-gradient(to right, #00F1FF, #3E7CEE); */
         }
 
@@ -73,6 +74,9 @@
             border: 2px grey solid;
             border-radius: 20px;
             height: 50vh;
+
+            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+            
             /* width: 70vw; */
             /* display: none; */
             /* opacity: 0; */
@@ -90,6 +94,8 @@
             text-align: center;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-size: 30px;
+            color: white;
+            margin-bottom: 15px;
         }
 
 
@@ -120,8 +126,9 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             transform: scale(1.1, 1.1);
             cursor: pointer;
-            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+            /* background: linear-gradient(to right, #00F1FF, #3E7CEE); */
             color: white;
+            background-color: black;
         }
 
 
@@ -241,7 +248,7 @@
 
         box1.addEventListener('click' , function(){
             document.querySelector(".tickkk").style = "display:flex;"; 
-            document.querySelector("#box1").style = " border:3px #039be5 solid;"; 
+            document.querySelector("#box1").style = " border:5px #039be5 solid;"; 
             document.querySelector("#box2").style = " border:3px grey solid;"; 
             document.querySelector("#box3").style = " border:3px grey solid;"; 
             // document.querySelector("#tytl_1").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
@@ -249,7 +256,7 @@
 
         box2.addEventListener('click' , function(){
             document.querySelector(".tickkk").style = "display:flex; left:58vw;"; 
-            document.querySelector("#box2").style = " border:3px #039be5 solid;"; 
+            document.querySelector("#box2").style = " border:5px #039be5 solid;"; 
             document.querySelector("#box1").style = " border:3px grey solid;"; 
             document.querySelector("#box3").style = " border:3px grey solid;"; 
             // document.querySelector("#tytl_2").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
@@ -257,7 +264,7 @@
 
         box3.addEventListener('click' , function(){
             document.querySelector(".tickkk").style = "display:flex; left:85vw;"; 
-            document.querySelector("#box3").style = " border:3px #039be5 solid;"; 
+            document.querySelector("#box3").style = " border:5px #039be5 solid;"; 
             document.querySelector("#box1").style = " border:3px grey solid;"; 
             document.querySelector("#box2").style = " border:3px grey solid;"; 
             // document.querySelector("#tytl_3").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
