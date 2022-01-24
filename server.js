@@ -96,6 +96,14 @@ app.get("/admin_new2",(req,res)=>{
     res.render('admin_new2')
 })
 
+app.get("/dashboard",(req,res)=>{
+    res.render('dashboard')
+})
+
+app.get("/login",(req,res)=>{
+    res.render('login')
+})
+
 
 
 app.post('/admin',(req,res)=>{
