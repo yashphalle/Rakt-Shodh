@@ -92,6 +92,11 @@ app.get("/admin_new",(req,res)=>{
 })
 
 
+app.get("/admin_new2",(req,res)=>{
+    res.render('admin_new2')
+})
+
+
 
 app.post('/admin',(req,res)=>{
     rusername=req.body.username;
