@@ -48,6 +48,7 @@
             border-radius: 20px;
             height: 400px;
             transition: 0.5s;
+            z-index: 5;
 
 
         }
@@ -65,13 +66,16 @@
         }
 
         #box1 img {
-            margin-top: 20px;
-            height: 270px;
+            margin-top: 40px;
+            height: 250px;
             width: 300px;
         }
 
         .user_details {
             display: flex;
+            position: absolute;
+            top: 100px;
+            left:15vw;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -80,8 +84,10 @@
             border-radius: 20px;
             height: 70vh;
             width: 70vw;
-            display: none;
-
+            /* display: none; */
+            opacity: 0;
+            transition: 1s;
+            z-index: 3;
         }
 
         .user_details img {
@@ -178,19 +184,19 @@
 <body>
     <div class="container">
         <div class="content">
-            <div class="box" id="box1">
+            <div class="box" id="box1" onmouseenter="fadeOut_b1()" onmouseleave="fadeIn_b1()">
                 <h1>User Login</h1>
                 <img src="images/usericon.jpeg" alt="">
             </div>
-            <div class="box" id="box2">
+            <div class="box" id="box2" onmouseenter="fadeOut_b2()" onmouseleave="fadeIn_b2()">
                 <h1>BloodBank Login</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis distinctio at dolore earum sunt
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis distinctio at dolore earum sunt
                     quidem placeat porro nam? Vitae impedit dolor consectetur necessitatibus quas vel animi, voluptatum
                     omnis sint quo asperiores officiis architecto provident qui ipsum. Voluptatibus dolorum animi porro
-                    non numquam molestias corporis id, quo in repellat itaque fugit.</p>
-                <!-- <img src="images/bloodbankicon.png" alt=""> -->
+                    non numquam molestias corporis id, quo in repellat itaque fugit.</p> -->
+                <img src="images/bloodbankicon.jpeg" alt="">
             </div>
-            <div class="box" id="box3">
+            <div class="box" id="box3" onmouseenter="fadeOut_b3()" onmouseleave="fadeIn_b3()"" >
                 <h1>Admin Login</h1>
                 <img src="images/adminicon.jpeg" alt="">
             </div>
@@ -223,6 +229,9 @@
         </div>
 
 
+        
+
+
 
         <script>
             var box = document.querySelector('#box1');
@@ -231,7 +240,7 @@
                 document.querySelector('#box1').style = "display:none;"
                 document.querySelector('#box2').style = "display:none;"
                 document.querySelector('#box3').style = "display:none;"
-                document.querySelector('.user_details').style = "display:flex;"
+                document.querySelector('.user_details').style = "opacity:1;"
             })
 
 
@@ -241,10 +250,59 @@
                 document.querySelector('#box1').style = ""
                 document.querySelector('#box2').style = ""
                 document.querySelector('#box3').style = ""
-                document.querySelector('.user_details').style = "display:none;"
+                document.querySelector('.user_details').style = "opacity:0;  transition:0s;;"
             })
 
+            
         </script>
+
+
+<script type="text/javascript">
+    function fadeOut_b1(){
+        var square2 = document.getElementById('box2');
+        var square3 = document.getElementById('box3');
+        square2.style.opacity = '0.3';
+        square3.style.opacity = '0.3';
+    }
+
+    function fadeIn_b1(){
+        var square2 = document.getElementById('box2');
+        var square3 = document.getElementById('box3');
+        square2.style.opacity = '1';
+        square3.style.opacity = '1';
+    }
+
+
+    function fadeOut_b2(){
+        var square2 = document.getElementById('box1');
+        var square3 = document.getElementById('box3');
+        square2.style.opacity = '0.3';
+        square3.style.opacity = '0.3';
+    }
+
+    function fadeIn_b2(){
+        var square2 = document.getElementById('box1');
+        var square3 = document.getElementById('box3');
+        square2.style.opacity = '1';
+        square3.style.opacity = '1';
+    }
+
+
+    function fadeOut_b3(){
+        var square2 = document.getElementById('box1');
+        var square3 = document.getElementById('box2');
+        square2.style.opacity = '0.3';
+        square3.style.opacity = '0.3';
+    }
+
+    function fadeIn_b3(){
+        var square2 = document.getElementById('box1');
+        var square3 = document.getElementById('box2');
+        square2.style.opacity = '1';
+        square3.style.opacity = '1';
+    }
+</script>
+
 
 
 </body>
