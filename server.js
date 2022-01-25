@@ -105,6 +105,11 @@ app.get("/login",(req,res)=>{
 })
 
 
+app.get("/user_dashboard",(req,res)=>{
+    res.render('user_dashboard')
+})
+
+
 
 app.post('/admin',(req,res)=>{
     rusername=req.body.username;

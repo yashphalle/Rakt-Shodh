@@ -115,25 +115,49 @@
             border-color: white;
         }
 
-        .btn {
+        .btn3 {
             margin-top: 30px;
             opacity: 0;
             transition: 0.5s;
         }
 
-        button {
+        .btn1 {
+            margin-top: 30px;
+            /* opacity: 0; */
+            transition: 0.5s;
+        }
+
+        
+        #button1 {
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-size: 27px;
             height: 40px;
             width: 10vw;
             border-radius: 10px;
             text-align: center;
-
-
-
         }
 
-        button:hover {
+        #button1:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1, 1.1);
+            cursor: pointer;
+            /* background: linear-gradient(to right, #00F1FF, #3E7CEE); */
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+
+
+
+        #button3 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 27px;
+            height: 40px;
+            width: 10vw;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #button3:hover {
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             transform: scale(1.1, 1.1);
             cursor: pointer;
@@ -141,6 +165,8 @@
             color: white;
             background-color: black;
         }
+
+
 
 
         .box h1 {
@@ -244,12 +270,26 @@
                 <input type="password" placeholder="Enter your Password">
             </div>
 
-            <div class="btn">
-                <a href="\dashboard">
-                    <button id="clickhere" >SUBMIT</button>
+
+            <div class="btn1">
+                <a href="#">
+                    <button id="button1" >SUBMIT</button>
                 </a>
             </div>
 
+
+
+            <!-- <div class="btn3">
+                <a href="\dashboard">
+                    <button id="button3" >SUBMIT</button>
+                </a>
+            </div> -->
+
+
+            
+               
+          
+          
         </div>
 
 
@@ -263,6 +303,9 @@
             document.querySelector("#box1").style = " border:5px #039be5 solid;";
             document.querySelector("#box2").style = " border:3px grey solid;";
             document.querySelector("#box3").style = " border:3px grey solid;";
+            document.querySelector(".btn1").innerHTML = "<a href='/user_dashboard'><button id='button3'>SUBMIT</button></a>"
+            // document.querySelector(".btn1").style = " opacity:1;"
+            
             // document.querySelector("#tytl_1").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
         })
 
@@ -271,6 +314,7 @@
             document.querySelector("#box2").style = " border:5px #039be5 solid;";
             document.querySelector("#box1").style = " border:3px grey solid;";
             document.querySelector("#box3").style = " border:3px grey solid;";
+            document.querySelector(".btn1").innerHTML = "<a href='#'><button id='button3'>SUBMIT</button></a>"
             // document.querySelector("#tytl_2").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
         })
 
@@ -279,7 +323,7 @@
             document.querySelector("#box3").style = " border:5px #039be5 solid;";
             document.querySelector("#box1").style = " border:3px grey solid;";
             document.querySelector("#box2").style = " border:3px grey solid;";
-            document.querySelector(".btn").style = " opacity:1;"
+            document.querySelector(".btn1").innerHTML = "<a href='/dashboard'><button id='button3'>SUBMIT</button></a>"
             // document.querySelector("#tytl_3").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
         })
 
