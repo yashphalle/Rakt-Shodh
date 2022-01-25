@@ -104,10 +104,21 @@
             width: 20vw;
             border-radius: 10px;
             text-align: center;
+            font-size: 20px;
+        }
+
+        input:focus{
+            /* background-color: rgb(71, 71, 71); */
+            /* background: linear-gradient(to right, #000000, #ffffff); */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            /* color: white; */
+            border-color: white;
         }
 
         .btn {
             margin-top: 30px;
+            opacity: 0;
+            transition: 0.5s;
         }
 
         button {
@@ -235,7 +246,7 @@
 
             <div class="btn">
                 <a href="\dashboard">
-                    <button>SUBMIT</button>
+                    <button id="clickhere" >SUBMIT</button>
                 </a>
             </div>
 
@@ -268,6 +279,7 @@
             document.querySelector("#box3").style = " border:5px #039be5 solid;";
             document.querySelector("#box1").style = " border:3px grey solid;";
             document.querySelector("#box2").style = " border:3px grey solid;";
+            document.querySelector(".btn").style = " opacity:1;"
             // document.querySelector("#tytl_3").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
         })
 
