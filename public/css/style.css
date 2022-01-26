@@ -86,7 +86,7 @@ nav ul li:hover {
     width: 100vw;
     background-image: url("bg-2.png");
     /* background-image: url("images\bg-2.png"); */
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
     /* border-image: fill; */
     /* background-position: center; */
     background-repeat: no-repeat;
@@ -279,38 +279,20 @@ nav ul li:hover {
     padding-bottom: 20px;
 }
 
-.services {
-    position: relative;
-    bottom: 200px;
-    left: 150px;
-    font-size: 30px;
-    
-    /* background-color: #4f29cd; */
-    /* -webkit-background-clip: text; */
-}
-
-.services h1 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: linear-gradient(to right, #ff0000, #cab900, #2196f3);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    
-}
-
-.services :hover {
-    color: #ff0000;
-}
 
 
 
 .services2 {
-    display: inline-block;
-    position: relative;
-    bottom: 10px;
-    left: 37vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    /* bottom: 10px; */
+    /* left: 37vw; */
     font-size: 30px;
     /* background-color: #4f29cd; */
     /* -webkit-background-clip: text; */
+    margin-top: 15vh;
 }
 
 .services2 h1 {
@@ -321,7 +303,6 @@ nav ul li:hover {
 
     margin-top: 50px;
     margin-bottom:50px;
-    /* border: 2px red solid; */
 
 }
 
@@ -649,14 +630,14 @@ tr:hover {
 .dabbe img{
     /* margin-bottom: -30px; */
     /* margin-left: 100px; */
-    height: 60px;
+    height: 55px;
 
     /* border: 2px gold solid ; */
 }
 
 .dabba{
     /* text-align: center; */
-    font-size: 60px;
+    font-size: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
