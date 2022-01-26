@@ -86,13 +86,15 @@ nav ul li:hover {
     width: 100vw;
     background-image: url("bg-2.png");
     /* background-image: url("images\bg-2.png"); */
-    /* border: 2px solid grey; */
+    border: 2px solid grey;
     /* border-image: fill; */
     /* background-position: center; */
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size:cover;
+    background-position: center ;
+    /* background-attachment:scroll; */
     /* box-sizing: border-box; */
-    position: relative;
+    /* position: relative; */
 }
 
 
@@ -623,41 +625,46 @@ tr:hover {
 
 .counting{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: absolute;
+    /* position: absolute;
     top: 70vh;
-    left: 0;
+    left: 0; */
    
     /* margin-top: 30vh ; */
-    /* border: 2px red solid; */
-    height: 200px;
-    width: 100%;
+    border: 2px red solid;
+    height: 20vh;
+    width: 50vw;
+
 }
 
 .dabbe{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: grey; */
-    height: 20vh;
-    width: 50vw;
+    background-color: grey;
+
+    margin-top: -10em;
 
 }
 
 .dabbe img{
-    margin-bottom: -30px;
-    margin-left: 100px;
-    height: 50px;
+    /* margin-bottom: -30px; */
+    /* margin-left: 100px; */
+    height: 60px;
+
+    border: 2px gold solid ;
 }
 
 .dabba{
-    font-size: 50px;
+    /* text-align: center; */
+    font-size: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    /* margin: 30px; */
     /* background-color: #00F1FF; */
-    height: 100px;
-    width: 200px;
+    /* height: 200px; */
+    /* width: 200px; */
+    border: 2px solid green;
 }
 
 /* .contain span{
@@ -667,3 +674,19 @@ tr:hover {
     font-size: 50px;
 
 } */
+
+
+.countone{
+    text-align: center;
+    background-color: #3E7CEE;
+    margin-right: 5em;
+    width: 10em;
+}
+
+
+.counttwo{
+    text-align: center;
+    background-color: #ffe600;
+    margin-left: 5em;
+    width: 10em;
+}
