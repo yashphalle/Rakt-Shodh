@@ -30,8 +30,11 @@
 
         .options {
             display: flex;
+            justify-content: center;
+            align-items: center;
             /* border: 2px grey solid; */
             border-radius: 20px;
+
         }
 
         .box {
@@ -82,11 +85,15 @@
             /* opacity: 0; */
             /* transition: 1s; */
             /* z-index: 3; */
+
+            /* border: 2px red solid; */
         }
 
         .user_details .input-box {
             display: grid;
-            margin: 30px;
+            /* margin: 30px; */
+            margin-bottom: 2.5em;
+            /* border: 2px red solid; */
 
         }
 
@@ -96,6 +103,8 @@
             font-size: 30px;
             color: white;
             margin-bottom: 15px;
+
+
         }
 
 
@@ -115,14 +124,8 @@
             border-color: white;
         }
 
-        .btn3 {
-            margin-top: 30px;
-            opacity: 0;
-            transition: 0.5s;
-        }
-
         .btn1 {
-            margin-top: 30px;
+            margin-top: 3vh;
             /* opacity: 0; */
             transition: 0.5s;
         }
@@ -197,13 +200,66 @@
             display: none;
         } */
 
-        .tickkk {
-            height: 50px;
-            position: fixed;
-            top: 33vh;
-            left: 31vw;
-            display: none;
+
+        #box1{
+            /* background-color: green; */
         }
+
+        .tickbox{
+            display: flex;
+            justify-content: flex-end;
+            /* background-color: grey; */
+            margin-top: -3em;
+            height: 3em;
+
+        }
+
+        
+        #tick_box1 {
+            margin-top: 1em;
+            margin-right: -1em;
+            height: 50px;
+            justify-content: flex-end;
+            /* border: 2px red solid ; */
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+
+
+        
+        #tick_box2 {
+            margin-top: 1em;
+            margin-right: -1em;
+            height: 50px;
+            justify-content: flex-end;
+            /* border: 2px red solid ; */
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+
+
+        
+        #tick_box3 {
+            margin-top: 1em;
+            margin-right: -1em;
+            height: 50px;
+            justify-content: flex-end;
+            /* border: 2px red solid ; */
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+
+
+
+
+
+
+
+
+
 
         #heading {
             margin-top: -50px;
@@ -229,6 +285,10 @@
                 <div class="images">
                     <img src="images/usericon.jpeg" alt="">
                 </div>
+                <div class="tickbox">
+                    <img id="tick_box1" src="images/tick.png" alt="">
+                </div>
+                
                 <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio asperiores libero sint amet dolores adipisci
                     cum voluptas eius ipsam ab, delectus, magnam dignissimos ipsa ut quidem distinctio. Quae sunt reiciendis
                     corporis, at veniam exercitationem iusto obcaecati modi, iste sapiente ea alias explicabo eius laboriosam
@@ -238,6 +298,9 @@
                 <h1 id="tytl_2">Blood Bank Login</h1>
                 <div class="images">
                     <img src="images/bloodbankicon.jpeg" alt="">
+                </div>
+                <div class="tickbox">
+                    <img id="tick_box2" src="images/tick.png" alt="">
                 </div>
                 <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio asperiores libero sint amet dolores adipisci
                     cum voluptas eius ipsam ab, delectus, magnam dignissimos ipsa ut quidem distinctio. Quae sunt reiciendis
@@ -249,13 +312,16 @@
                 <div class="images">
                     <img src="images/adminicon.jpeg" alt="">
                 </div>
+                <div class="tickbox">
+                    <img id="tick_box3" src="images/tick.png" alt="">
+                </div>
                 <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio asperiores libero sint amet dolores adipisci
                     cum voluptas eius ipsam ab, delectus, magnam dignissimos ipsa ut quidem distinctio. Quae sunt reiciendis
                     corporis, at veniam exercitationem iusto obcaecati modi, iste sapiente ea alias explicabo eius laboriosam
                     tempora accusantium doloremque vitae harum quasi.</p> -->
             </div>
 
-            <img class="tickkk" id="tickimg" src="images/tick.png" alt="">
+            
 
         </div>
 
@@ -299,7 +365,9 @@
     <script type="text/javascript">
 
         box1.addEventListener('click', function () {
-            document.querySelector(".tickkk").style = "display:flex;";
+            document.querySelector("#tick_box1").style = "opacity: 1;";
+            document.querySelector("#tick_box2").style = "opacity: 0;";
+            document.querySelector("#tick_box3").style = "opacity: 0;";
             document.querySelector("#box1").style = " border:5px #039be5 solid;";
             document.querySelector("#box2").style = " border:3px grey solid;";
             document.querySelector("#box3").style = " border:3px grey solid;";
@@ -310,7 +378,9 @@
         })
 
         box2.addEventListener('click', function () {
-            document.querySelector(".tickkk").style = "display:flex; left:58vw;";
+            document.querySelector("#tick_box2").style = "opacity: 1;";
+            document.querySelector("#tick_box1").style = "opacity: 0;";
+            document.querySelector("#tick_box3").style = "opacity: 0;";
             document.querySelector("#box2").style = " border:5px #039be5 solid;";
             document.querySelector("#box1").style = " border:3px grey solid;";
             document.querySelector("#box3").style = " border:3px grey solid;";
@@ -319,7 +389,9 @@
         })
 
         box3.addEventListener('click', function () {
-            document.querySelector(".tickkk").style = "display:flex; left:85vw;";
+            document.querySelector("#tick_box3").style = "opacity: 1;";
+            document.querySelector("#tick_box1").style = "opacity: 0;";
+            document.querySelector("#tick_box2").style = "opacity: 0;";
             document.querySelector("#box3").style = " border:5px #039be5 solid;";
             document.querySelector("#box1").style = " border:3px grey solid;";
             document.querySelector("#box2").style = " border:3px grey solid;";

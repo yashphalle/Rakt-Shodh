@@ -630,7 +630,7 @@ tr:hover {
     left: 0; */
    
     /* margin-top: 30vh ; */
-    border: 2px red solid;
+    /* border: 2px red solid; */
     height: 20vh;
     width: 50vw;
 
@@ -640,7 +640,7 @@ tr:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    /* background-color: grey; */
 
     margin-top: -10em;
 
@@ -651,7 +651,7 @@ tr:hover {
     /* margin-left: 100px; */
     height: 60px;
 
-    border: 2px gold solid ;
+    /* border: 2px gold solid ; */
 }
 
 .dabba{
@@ -664,7 +664,7 @@ tr:hover {
     /* background-color: #00F1FF; */
     /* height: 200px; */
     /* width: 200px; */
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 /* .contain span{
@@ -678,7 +678,7 @@ tr:hover {
 
 .countone{
     text-align: center;
-    background-color: #3E7CEE;
+    /* background-color: #3E7CEE; */
     margin-right: 5em;
     width: 10em;
 }
@@ -686,7 +686,7 @@ tr:hover {
 
 .counttwo{
     text-align: center;
-    background-color: #ffe600;
+    /* background-color: #ffe600; */
     margin-left: 5em;
     width: 10em;
 }
