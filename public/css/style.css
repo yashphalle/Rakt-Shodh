@@ -375,10 +375,12 @@ nav ul li:hover {
     height: 80vh;
     text-align: center;
     margin: auto;
-    width:1400px;
+    width:100%;
     border-radius: 20px;
     margin-bottom: 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 
     /* border: 2px red solid; */
 }
@@ -670,4 +672,36 @@ tr:hover {
     /* background-color: #ffe600; */
     margin-left: 5em;
     width: 10em;
+}
+
+.container3{
+    width: 100%;
+}
+
+#twoblocks{
+    
+    display: flex;
+    flex-direction: row;
+}
+
+@media(max-width:768px){
+    
+    .block1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #twoblocks{
+        flex-direction: column;
+        
+    }
+    .twoblocks .block1 li{
+        
+        font-size: 1.35rem;
+    }
+    #indeximg{
+        width: 100%;
+        height: auto;
+    }
 }
