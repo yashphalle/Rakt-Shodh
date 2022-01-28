@@ -678,6 +678,9 @@ tr:hover {
     width: 100%;
 }
 
+  /* CHANGES MADE TO CONTAINER 3 AND CONTAINER 4 TO MAKE IT MORE RESPONSIVE */
+
+                      /* ***********************START *****************************/
 #twoblocks{
     
     display: flex;
@@ -705,3 +708,5 @@ tr:hover {
         height: auto;
     }
 }
+
+                  /* *********************** END *****************************/
