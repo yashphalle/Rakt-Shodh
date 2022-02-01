@@ -30,5 +30,5 @@ It will provide contact information of all blood banks .
 
 
 STEPS TO RUN THE PROJECT.
-->Run the progrma server.js
+->Run the program server.js
 ->click on link or go to localhost:3000 in your browser
