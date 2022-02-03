@@ -63,7 +63,12 @@ const requestdataSchema={
     rstate:String,
     rcity:String,
     rbg:String,
-    rnumber:String
+    rnumber:String,
+    raccstatus:String,
+    raccby:String,
+    rappoinmentdate:String,
+    rappoinmentbloodbank:String,
+    rdonationstatus:String
     
 }
 
@@ -338,6 +343,34 @@ app.post("/request",(req,res)=>{
         rnumber:req.body.rnumber
     });
         newrequest.save();
+        const sendsmstorequestor=async()=>{
+            rnumber=req.body.rnumber;
+            rname=req.body.rname;
+            var result= await Request.findOne({rname:rname},{rumber:rnumber});
+            // trackid=result.name;
+            const accountSid = process.env.TWILIO_ACCOUNT_SID;
+           const authToken = process.env.TWILIO_AUTH_TOKEN;
+           
+           const client = require('twilio')(accountSid, authToken);
+        //    document.write(accountSid);
+// Make API calls here...
+          
+                client.messages
+                    .create({
+                        body: `Your Request Has Been Sent To All ! Please check Track request option for tracking progress of your request .Tracking Id:${result._id}`,
+                        messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
+                        to: `${rnumber}`,
+                        
+                    })
+                    .then(message => console.log(message.sid));
+                   
+
+
+        }
+
+
+
+
     const sendsms=async()=>{
 
 gstate=req.body.rstate;
@@ -419,8 +452,9 @@ switch (gbloodgroup) {
          })
         
         }
-sendsms();
 
+// sendsms();
+sendsmstorequestor();
 res.render('smsnotification')
         
 })
@@ -605,9 +639,9 @@ const sendsms=async()=>{
                 var gnumber=donerdata.number;
               
                 
-    
-                const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-                const authToken = '8e00b644e93690125de971a68bae3e6e'; 
+     
+                const accountSid = process.env.TWILIO_ACCOUNT_SID;
+                const authToken = process.env.TWILIO_AUTH_TOKEN;
                 const client = require('twilio')(accountSid, authToken); 
               
                     client.messages
@@ -710,11 +744,51 @@ res.send("updated...");
 
 
 
+app.get("/acceptrequest",(req,res)=>{
+    res.render('acceptrequest')
+})
+app.post("/acceptrequest",(req,res)=>{
+    const update=async()=>{
+var id=req.body.requestid;
+
+var raccstatus="accepted";
+var name=req.body.raccby;
+var rappoinmentdate=req.body.date;
+var bloodbank=req.body.bloodbank;
+var rdonationstatus="inprogress";
+
+// const update_status={raccstatus:raccstatus};
+// const update_doner={raccby:name};
+// const update_date={rappoinmentdate:rappoinmentdate};
+// const update_bloodbank={rappoinmentbloodbank:rappoinmentbloodbank };
+// const update_donation_status={rdonationstatus:rdonationstatus };
+const update={raccstatus:raccstatus,raccby:name,rappoinmentdate:rappoinmentdate,rappoinmentbloodbank:bloodbank,rdonationstatus:rdonationstatus}
+// await Request.findByIdAndUpdate({_id:id},{update_doner,update_status,update_date,update_bloodbank,update_donation_status});
+await Request.findByIdAndUpdate(id,update);
 
 
 
+    }
+update();
+res.send("updated");
+})
 
 
+app.get("/trackrequest",(req,res)=>{
+    res.render('trackrequest')
+})
+app.post("/trackrequest",(req,res)=>{
+    var id=req.body.rid;
+    // var requestlist=Request.findById({id})
+ 
+    // res.render('trackrequestresult',{requestlist:requestdata})
+
+    Request.find({id},function(err,requestdata){
+        res.render('trackrequestresult',{
+            requestlist:requestdata
+        })
+    })
+})
 
 
 

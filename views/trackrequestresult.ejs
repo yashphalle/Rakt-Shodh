@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><%requestlist.forEach(requestdata=>{%>
+                <%=requestdata.rname %>
+                <%=requestdata.rstate %>
+                <%=requestdata.rcity %>
+                <%=requestdata.rbg %>               
+                <%=requestdata.rnumber %>
+                <%=requestdata.raccstatus %>
+                <%=requestdata.raccby %>
+                <%=requestdata.rappoinmentdate %>
+                <%=requestdata.rappoinmentbloodbank %>
+                <%=requestdata.rdonationstatus %>
+                <%})%>
+</body>
+</html>
+<!-- const requestdataSchema={
+    rname:String,
+    rstate:String,
+    rcity:String,
+    rbg:String,
+    rnumber:String,
+    raccstatus:String,
+    raccby:String,
+    rappoinmentdate:String,
+    rappoinmentbloodbank:String,
+    rdonationstatus:String
+    
+} -->
