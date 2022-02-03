@@ -327,14 +327,14 @@ app.get("/request",(req,res)=>{
 app.post("/request",(req,res)=>{
 
 
-    // let newrequest=new Request({
-    //     rname:req.body.rname,       
-    //     rstate:req.body.rstate,
-    //     rcity:req.body.rcity,
-    //     rbg:req.body.rbloodgroup,
-    //     rnumber:req.body.rnumber
-    // });
-    //     newrequest.save();
+    let newrequest=new Request({
+        rname:req.body.rname,       
+        rstate:req.body.rstate,
+        rcity:req.body.rcity,
+        rbg:req.body.rbloodgroup,
+        rnumber:req.body.rnumber
+    });
+        newrequest.save();
     const sendsms=async()=>{
 
 gstate=req.body.rstate;
@@ -391,9 +391,17 @@ switch (gbloodgroup) {
           
             
 
-            const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-            const authToken = '8e00b644e93690125de971a68bae3e6e'; 
-            const client = require('twilio')(accountSid, authToken); 
+            // const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
+            // const authToken = '8e00b644e93690125de971a68bae3e6e'; 
+            // const client = require('twilio')(accountSid, authToken); 
+
+            
+           const accountSid = process.env.TWILIO_ACCOUNT_SID;
+           const authToken = process.env.TWILIO_AUTH_TOKEN;
+           
+           const client = require('twilio')(accountSid, authToken);
+           
+// Make API calls here...
           
                 client.messages
                     .create({
