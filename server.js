@@ -453,7 +453,7 @@ switch (gbloodgroup) {
         
         }
 
-// sendsms();
+sendsms();
 sendsmstorequestor();
 res.render('smsnotification')
         
