@@ -748,6 +748,7 @@ app.get("/acceptrequest",(req,res)=>{
     res.render('acceptrequest')
 })
 app.post("/acceptrequest",(req,res)=>{
+    var id=req.body.requestid;
     const update=async()=>{
 var id=req.body.requestid;
 
@@ -769,7 +770,30 @@ await Request.findByIdAndUpdate(id,update);
 
 
     }
+
+const sms=async()=>{
+var sms=await Request.findById(id);
+const rnumber=`${sms.rnumber}`;
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+           
+           const client = require('twilio')(accountSid, authToken);
+        //    document.write(accountSid);
+// Make API calls here...
+          
+                client.messages
+                    .create({
+                        body: `Your Request Has Been Accepted ! Please check Track request option for tracking progress of your request .Tracking Id:${sms._id} Tentative Date: ${sms.rappoinmentdate}`,
+                        messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
+                        to: `${rnumber}`,
+                        
+                    })
+                    .then(message => console.log(message.sid));
+                   
+
+}
 update();
+sms();
 res.send("updated");
 })
 
