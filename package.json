@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/yashphalle/Rubix-22-67-TechDudes#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "mongoose": "^6.1.7",

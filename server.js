@@ -12,6 +12,9 @@ app.use(express.static("public"));
 
 const http = require('http'); 
 const hostname = '127.0.0.1'; 
+require('dotenv').config();
+
+
 
 mongoose.connect("mongodb+srv://bloodadmin:1234@cluster0.mre6e.mongodb.net/blooddata?retryWrites=true&w=majority");
 const blooddataSchema={
@@ -400,7 +403,7 @@ switch (gbloodgroup) {
            const authToken = process.env.TWILIO_AUTH_TOKEN;
            
            const client = require('twilio')(accountSid, authToken);
-           
+        //    document.write(accountSid);
 // Make API calls here...
           
                 client.messages
@@ -419,7 +422,7 @@ switch (gbloodgroup) {
 sendsms();
 
 res.render('smsnotification')
-                
+        
 })
 
 // app.get("/request2",(req,res)=>{
