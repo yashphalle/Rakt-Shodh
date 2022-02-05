@@ -147,7 +147,6 @@ nav ul li:hover {
         /* display: flex; */
         /* justify-content: center; */
         /* align-items: center; */
-        
 
     /* } */
 
@@ -706,6 +705,10 @@ tr:hover {
     #indeximg{
         width: 100%;
         height: auto;
+    }
+
+    .container4 li{
+        font-size: 1.35rem;
     }
 }
 
