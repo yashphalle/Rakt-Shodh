@@ -814,6 +814,9 @@ app.post("/trackrequest",(req,res)=>{
     })
 })
 
+app.get("/updatereqstatus",(req,res)=>{
+    res.render('acceptreqstatus')
+})
 
 
 const port=3000;
