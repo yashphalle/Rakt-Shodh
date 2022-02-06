@@ -5,27 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/table.css">
+    <style>
+        #btn3{
+            background-color: greenyellow;
+            color: black;
+            font-size:1rem ;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <form action="/updatereqstatus" method="POST">
-        <label for="id">Enter Request Id:</label>
-        <input type="text" name="requestid" id="text">
+    <table class="table">
+        <thead>
+          <tr id="header">
+    
+            <th scope="col">Name</th>
+            <th scope="col">state</th>
+            <th id="bgdata" scope="col">city</th>
+            <th id="bgdata" scope="col">rbg </th>
+            <th id="bgdata" scope="col">number </th>
+            <th id="bgdata" scope="col">accstatus </th>
+            <th id="bgdata" scope="col">accby</th>
+            <th id="bgdata" scope="col">appoinmentdate</th>
+            <th id="bgdata" scope="col">time</th>
+            <th id="bgdata" scope="col">bloodbankid</th>
+            <th id="bgdata" scope="col">bloodbank</th>
+            <th id="bgdata" scope="col">donationstatus</th>
+            <th id="bgdata" scope="col">donationstatus</th>
+        </tr>
+    </thead>
+    <tbody>  
+        <%requestlist.forEach(requestdata=>{%>
+            <tr>
+       <td> <%=requestdata.rname %></td>
+       <td> <%=requestdata.rstate %></td>
+       <td> <%=requestdata.rcity %></td> 
+      <td> <%=requestdata.rbg %>    </td>            
+       <td> <%=requestdata.rnumber %></td>
+       <td> <%=requestdata.raccstatus %></td>
+       <td> <%=requestdata.raccby %></td>
+       <td> <%=requestdata.rappoinmentdate %></td>
+       <td> <%=requestdata.rappoinmenttime %></td>
+       <td> <%=requestdata.rbid %></td>
+       <td> <%=requestdata.rappoinmentbloodbank %></td>
+       <td> <%=requestdata.rdonationstatus %></td>
+
         
-        <label for="name">Enter Your Name:</label>
-        <input type="text" name="raccby" id="text">
+        <td><div class="btn">
+            <button id="btn3" value="submit">Completed</button>
+        </div></td>
         
-        <label for="date">Date:</label>
-        <input type="date" name="date" id="date">
-        
-        <label for="bb">Nearest Blood Bank:</label>
-        <input type="text"name="bloodbank" >
-        
-        
-        
-        <div class="btn">
-            <button id="btn3" value="submit">Submit</button>
-        </div>
-            </form>
+    </tr>
+        <%})%>
+    </tbody>
+</table>
         
 </body>
 </html>
