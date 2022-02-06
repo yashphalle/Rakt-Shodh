@@ -70,7 +70,7 @@ const requestdataSchema={
     rappoinmentbloodbank:String,
     rdonationstatus:String,
     rappoinmenttime:String,
-    bid:String
+    bid:Number
 
     
 }

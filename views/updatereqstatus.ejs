@@ -38,6 +38,7 @@
     <tbody>  
         <%requestlist.forEach(requestdata=>{%>
             <tr>
+                
        <td> <%=requestdata.rname %></td>
        <td> <%=requestdata.rstate %></td>
        <td> <%=requestdata.rcity %></td> 
@@ -47,19 +48,38 @@
        <td> <%=requestdata.raccby %></td>
        <td> <%=requestdata.rappoinmentdate %></td>
        <td> <%=requestdata.rappoinmenttime %></td>
-       <td> <%=requestdata.rbid %></td>
+       <td> <%=requestdata.bid %></td>
        <td> <%=requestdata.rappoinmentbloodbank %></td>
        <td> <%=requestdata.rdonationstatus %></td>
 
-        
-        <td><div class="btn">
+       <td><input type="button" 
+        value="submit" 
+        onclick="submit()" /></td>
+        <!-- <td><div class="btn">
             <button id="btn3" value="submit">Completed</button>
-        </div></td>
-        
+        </div></td> -->
+      <!-- //we have to add send request id by clicking submit button   -->
     </tr>
         <%})%>
     </tbody>
 </table>
         
+
+<!-- <script>
+function submit() {
+                var rowId = 
+                    event.target.parentNode.parentNode.id;
+              //this gives id of tr whose button was clicked
+                var data = 
+ document.getElementById(rowId).querySelectorAll(); 
+              /*returns array of all elements with 
+              "row-data" class within the row with given id*/
+  
+                var name = data[0].innerHTML;
+                var age = data[1].innerHTML;
+  
+                alert("Name: " + name + "\nAge: " + age);
+            } -->
+<!-- </script> -->
 </body>
 </html>
