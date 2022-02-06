@@ -68,7 +68,10 @@ const requestdataSchema={
     raccby:String,
     rappoinmentdate:String,
     rappoinmentbloodbank:String,
-    rdonationstatus:String
+    rdonationstatus:String,
+    rappoinmenttime:String,
+    bid:String
+
     
 }
 
@@ -754,16 +757,18 @@ var id=req.body.requestid;
 
 var raccstatus="accepted";
 var name=req.body.raccby;
-var rappoinmentdate=req.body.date;
+var rappoinmentdate=String(req.body.date);
 var bloodbank=req.body.bloodbank;
 var rdonationstatus="inprogress";
+var  rappoinmenttime=String(req.body.time);
+var bid=req.body.bid;
 
 // const update_status={raccstatus:raccstatus};
 // const update_doner={raccby:name};
 // const update_date={rappoinmentdate:rappoinmentdate};
 // const update_bloodbank={rappoinmentbloodbank:rappoinmentbloodbank };
 // const update_donation_status={rdonationstatus:rdonationstatus };
-const update={raccstatus:raccstatus,raccby:name,rappoinmentdate:rappoinmentdate,rappoinmentbloodbank:bloodbank,rdonationstatus:rdonationstatus}
+const update={raccstatus:raccstatus,raccby:name,rappoinmentdate:rappoinmentdate,rappoinmentbloodbank:bloodbank,rdonationstatus:rdonationstatus,rappoinmenttime:rappoinmenttime,bid:bid}
 // await Request.findByIdAndUpdate({_id:id},{update_doner,update_status,update_date,update_bloodbank,update_donation_status});
 await Request.findByIdAndUpdate(id,update);
 
@@ -783,7 +788,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
           
                 client.messages
                     .create({
-                        body: `Your Request Has Been Accepted ! Please check Track request option for tracking progress of your request .Tracking Id:${sms._id} Tentative Date: ${sms.rappoinmentdate}`,
+                        body: `Your Request Has Been Accepted ! Please check Track request option for tracking progress of your request .Tracking Id:${sms._id} Tentative Date: ${sms.rappoinmentdate} Tentative Time:${sms.rappoinmenttime}`,
                         messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
                         to: `${rnumber}`,
                         
@@ -803,9 +808,7 @@ app.get("/trackrequest",(req,res)=>{
 })
 app.post("/trackrequest",(req,res)=>{
     var id=req.body.rid;
-    // var requestlist=Request.findById({id})
- 
-    // res.render('trackrequestresult',{requestlist:requestdata})
+
     requestlist=[];
 
     Request.find({_id:id},function(err,requestdata){
@@ -813,17 +816,23 @@ app.post("/trackrequest",(req,res)=>{
             requestlist:requestdata
         })
     })
-    // requestlist=Request.find({id});
-    // requestdata=[];
-    // requestdata=requestlist;
-    // res.render('trackrequestresult',{
-    //     requestdata
-    // })
+ 
 
 })
 
 app.get("/updatereqstatus",(req,res)=>{
-    res.render('acceptreqstatus')
+    
+   
+    Request.find({},function(err,requestdata){
+        res.render('updatereqstatus',{
+            requestlist:requestdata
+        })
+    })
+ 
+})
+
+app.get("/bloodbankdashboard",(req,res)=>{
+    res.render('bloodbankdashboard')
 })
 
 
