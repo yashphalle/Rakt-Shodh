@@ -806,12 +806,20 @@ app.post("/trackrequest",(req,res)=>{
     // var requestlist=Request.findById({id})
  
     // res.render('trackrequestresult',{requestlist:requestdata})
+    requestlist=[];
 
-    Request.find({id},function(err,requestdata){
+    Request.find({_id:id},function(err,requestdata){
         res.render('trackrequestresult',{
             requestlist:requestdata
         })
     })
+    // requestlist=Request.find({id});
+    // requestdata=[];
+    // requestdata=requestlist;
+    // res.render('trackrequestresult',{
+    //     requestdata
+    // })
+
 })
 
 app.get("/updatereqstatus",(req,res)=>{
