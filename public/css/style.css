@@ -85,6 +85,7 @@ nav ul li:hover {
     height: 100vh;
     width: 100vw;
     background-image: url("bg-2.png");
+    background-size: cover;
     /* background-image: url("images\bg-2.png"); */
     /* border: 2px solid grey; */
     /* border-image: fill; */
@@ -710,6 +711,16 @@ tr:hover {
     .container4 li{
         font-size: 1.35rem;
     }
+}
+
+.mynavbar{
+    font-size: larger;
+
+}
+
+.mynavbar a{
+    text-decoration: none;
+    color: white;
 }
 
                   /* *********************** END *****************************/
