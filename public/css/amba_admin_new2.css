@@ -41,12 +41,93 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* ************************* START******************************** */
+html{
+    box-sizing: border-box; /* this helps to keep the width same even if we add a border*/
+    font-family: 'Open Sans' , sans-serif;
+}
 
 body{
     display: flex;
-    background-color: #FD5D5D;
+    background-color: #FFC3BD;
     align-items: center;
     justify-content: center;
     width: auto;
-    height: 100vh;
+    height: 120vh;
+}
+
+h1{
+    padding: 20px 0;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    color: #FD3535;
+}
+
+.panel{
+    background-color: #B5ECFE;
+    width: 100%;
+    max-width: 960px;
+    border-radius: 20px;
+
+}
+
+
+
+.panel h2{
+    font-size:2em;
+    font-weight: 600;
+    color: #FD3535 ;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel img{
+    width: 80%;
+}
+
+.optionbtn{
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 40px;
+    padding: 20px 0px;
+    width: 80%;
+    border: solid 5px #D4D8DA;
+    
+}
+
+.optionbtn:hover{
+    box-shadow: 0px 0px 17px 7px rgba(255,93,93,0.75);
+    -webkit-box-shadow: 0px 0px 17px 7px rgba(255,93,93,0.75);
+    -moz-box-shadow: 0px 0px 17px 7px rgba(255,93,93,0.75);
+}
+
+.optionbtn:focus{
+    border: solid #FD0D0D 10px;
+}
+.selectionButton{
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+}
+.selectionButton button{
+    background-color: white;
+    font-weight: 800;
+    border: solid 5px #D4D8DA;
+    border-radius: 100px;
+    padding: 5%;
+    margin: 5%;
+    
+}
+
+.selectionButton button:hover{
+    box-shadow: 0px 0px 17px 7px rgba(93,177,255,0.75);
+-webkit-box-shadow: 0px 0px 17px 7px rgba(93,177,255,0.75);
+-moz-box-shadow: 0px 0px 17px 7px rgba(93,177,255,0.75);
 }
