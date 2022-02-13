@@ -250,17 +250,18 @@ app.post("/request",(req,res)=>{
         rnumber:req.body.rnumber
     });
         newrequest.save();
-        const sendsmstorequestor=async()=>{
+
+const sendsmstorequestor=async()=>{
             rnumber=req.body.rnumber;
             rname=req.body.rname;
-            var result= await Request.findOne({rname:rname},{rumber:rnumber});
+            var result= await Request.findOne({rname:rname},{rnumber:rnumber});
             // trackid=result.name;
             const accountSid = process.env.TWILIO_ACCOUNT_SID;
            const authToken = process.env.TWILIO_AUTH_TOKEN;
            
            const client = require('twilio')(accountSid, authToken);
         //    document.write(accountSid);
-// Make API calls here...
+        // Make API calls here...
           
                 client.messages
                     .create({
@@ -278,11 +279,19 @@ app.post("/request",(req,res)=>{
 
 
 
-    const sendsms=async()=>{
+const sendsms=async()=>{
+        rnumber=req.body.rnumber;
+        rname=req.body.rname;
 
-gstate=req.body.rstate;
-gcity=req.body.rcity;
-gbloodgroup=req.body.rbloodgroup;
+        var result= await Request.findOne({rname:rname},{rnumber:rnumber});
+
+        gstate=result.rstate;
+        gcity=result.rcity;
+        gbloodgroup=result.rbloodgroup;
+        
+// gstate=req.body.rstate;
+// gcity=req.body.rcity;
+// gbloodgroup=req.body.rbloodgroup;
 var donerlist;
 
 
@@ -330,7 +339,7 @@ switch (gbloodgroup) {
 
         donerlist.forEach(donerdata=>
             {
-            var gnumber=donerdata.number;
+            var number=donerdata.number;
           
             
 
@@ -344,13 +353,13 @@ switch (gbloodgroup) {
            
            const client = require('twilio')(accountSid, authToken);
         //    document.write(accountSid);
-// Make API calls here...
+        // Make API calls here...
           
                 client.messages
                     .create({
-                        body: 'Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.For donation visit Rakt-Shodh Website or contact nearest blood bank',
+                        body: `Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.For donation visit Rakt-Shodh Website-and click on accept request function and enter Request ID.REQUEST ID: ${result._id}`,
                         messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
-                        to: `${gnumber}`,
+                        to: `${number}`,
                         
                     })
                     .then(message => console.log(message.sid));
