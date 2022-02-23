@@ -283,94 +283,95 @@ const sendsms=async()=>{
         rnumber=req.body.rnumber;
         rname=req.body.rname;
 
-        var result= await Request.findOne({rname:rname},{rnumber:rnumber});
-
-        gstate=result.rstate;
-        gcity=result.rcity;
-        gbloodgroup=result.rbloodgroup;
+         var result= await Request.findOne({$and:[{rname:rname},{rnumber:rnumber}]});
+        
+        var gstate=result.rstate;
+        var gcity=result.rcity;
+        var gbloodgroup=result.rbloodgroup;
         
 // gstate=req.body.rstate;
 // gcity=req.body.rcity;
 // gbloodgroup=req.body.rbloodgroup;
-var donerlist;
+// var donerlist;
 
-
-switch (gbloodgroup) {
-            case "a_pos":
-                const a_pos_doner= await Blood.find({   $and:[  {bg:"a_pos"},    {city:gcity}  ]     })
-                donerlist=a_pos_doner;
-                break;
-            case "b_pos":
-                const b_pos_doner= await Blood.find({$and:  [{bg:"b_pos"},{city:gcity}]})
-                donerlist=b_pos_doner;
-                break;
-            case "o_pos":
-                const o_pos_doner= await Blood.find({$and:  [{bg:"o_pos"},{city:gcity}]})
-                donerlist=o_pos_doner;
-                break;
-            case "ab_pos":
-                const ab_pos_doner= await Blood.find({$and:  [{bg:"ab_pos"},{city:gcity}]})
-                donerlist=ab_pos_doner;
-                break;
+console.log(gbloodgroup);
+// PROBLEM IN GBLOODGROUP-----------
+// switch (gbloodgroup) {
+//             case "a_pos":
+//                 const a_pos_doner= await Blood.find({   $and:[  {bg:"a_pos"},    {city:gcity}  ]     })
+//                 donerlist=a_pos_doner;
+//                 break;
+//             case "b_pos":
+//                 const b_pos_doner= await Blood.find({$and:  [{bg:"b_pos"},{city:gcity}]})
+//                 donerlist=b_pos_doner;
+//                 break;
+//             case "o_pos":
+//                 const o_pos_doner= await Blood.find({$and:  [{bg:"o_pos"},{city:gcity}]})
+//                 donerlist=o_pos_doner;
+//                 break;
+//             case "ab_pos":
+//                 const ab_pos_doner= await Blood.find({$and:  [{bg:"ab_pos"},{city:gcity}]})
+//                 donerlist=ab_pos_doner;
+//                 break;
         
-            case "a_neg":
-                const a_neg_doner= await Blood.find({$and:  [{bg:"a_neg"},{city:gcity}]})
-                donerlist=a_neg_doner;
-                break;
-            case "b_neg":
-                const b_neg_doner= await Blood.find({$and:  [{bg:"b_neg"},{city:gcity}]})
-                donerlist=b_neg_doner;
-                break;
-            case "o_neg":
-                const o_neg_doner= await Blood.find({$and:  [{bg:"o_neg"},{city:gcity}]})
-                donerlist=o_neg_doner;
-                break;
-            case "ab_neg":
-                const ab_neg_doner= await Blood.find({$and:  [{bg:"ab_neg"},{city:gcity}]})
-                donerlist=ab_neg_doner;
-                break;
-            default:
+//             case "a_neg":
+//                 const a_neg_doner= await Blood.find({$and:  [{bg:"a_neg"},{city:gcity}]})
+//                 donerlist=a_neg_doner;
+//                 break;
+//             case "b_neg":
+//                 const b_neg_doner= await Blood.find({$and:  [{bg:"b_neg"},{city:gcity}]})
+//                 donerlist=b_neg_doner;
+//                 break;
+//             case "o_neg":
+//                 const o_neg_doner= await Blood.find({$and:  [{bg:"o_neg"},{city:gcity}]})
+//                 donerlist=o_neg_doner;
+//                 break;
+//             case "ab_neg":
+//                 const ab_neg_doner= await Blood.find({$and:  [{bg:"ab_neg"},{city:gcity}]})
+//                 donerlist=ab_neg_doner;
+//                 break;
+//             default:
                 
-                    const z_neg_doner= await Blood.find({ bg:"a_neg"})
-                    donerlist=z_neg_doner;
-                    break;
+//                     const z_neg_doner= await Blood.find({ bg:"a_neg"})
+//                     donerlist=z_neg_doner;
+//                     break;
                 
-        }
-
-        donerlist.forEach(donerdata=>
-            {
-            var number=donerdata.number;
+//         }
+//         console.log(donerlist);
+        // donerlist.forEach(donerdata=>
+        //     {
+        //     var number=donerdata.number;
           
             
 
-            // const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-            // const authToken = '8e00b644e93690125de971a68bae3e6e'; 
-            // const client = require('twilio')(accountSid, authToken); 
+        //     // const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
+        //     // const authToken = '8e00b644e93690125de971a68bae3e6e'; 
+        //     // const client = require('twilio')(accountSid, authToken); 
 
             
-           const accountSid = process.env.TWILIO_ACCOUNT_SID;
-           const authToken = process.env.TWILIO_AUTH_TOKEN;
+        //    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+        //    const authToken = process.env.TWILIO_AUTH_TOKEN;
            
-           const client = require('twilio')(accountSid, authToken);
-        //    document.write(accountSid);
-        // Make API calls here...
+        //    const client = require('twilio')(accountSid, authToken);
+        // //    document.write(accountSid);
+        // // Make API calls here...
           
-                client.messages
-                    .create({
-                        body: `Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.For donation visit Rakt-Shodh Website-and click on accept request function and enter Request ID.REQUEST ID: ${result._id}`,
-                        messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
-                        to: `${number}`,
+        //         client.messages
+        //             .create({
+        //                 body: `Help !! Urgent need of blood with your matching blood group. Please donate blood you have chance to save a life.For donation visit Rakt-Shodh Website-and click on accept request function and enter Request ID.REQUEST ID: ${result._id}`,
+        //                 messagingServiceSid: 'MGa6a2aba55a2b53e61274df047248bfc5', 
+        //                 to: `${number}`,
                         
-                    })
-                    .then(message => console.log(message.sid));
+        //             })
+        //             .then(message => console.log(message.sid));
               
                     
-         })
+        //  })
         
         }
 
 sendsms();
-sendsmstorequestor();
+// sendsmstorequestor();
 res.render('smsnotification')
         
 })
