@@ -611,7 +611,13 @@ tr:hover {
     /* position: absolute;
     top: 70vh;
     left: 0; */
-   
+
+    position:relative;
+    left: 25vw;
+    top: 50px;
+
+    padding-bottom: 50px;
+
     /* margin-top: 30vh ; */
     /* border: 2px red solid; */
     height: 20vh;
@@ -625,8 +631,11 @@ tr:hover {
     align-items: center;
     /* background-color: grey; */
 
-    margin-top: -10em;
+    /* position:relative;
+    left: 30px;
+    top: 150px; */
 
+    /* margin-top: -10em; */
 }
 
 .dabbe img{
@@ -674,6 +683,14 @@ tr:hover {
     width: 10em;
 }
 
+.countthree
+{
+    text-align: center;
+    /* background-color: #ffe600; */
+    margin-left: 10em;
+    width: 10em;
+
+}
 .container3{
     width: 100%;
 }

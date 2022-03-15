@@ -14,7 +14,13 @@ const http = require('http');
 const hostname = '127.0.0.1'; 
 require('dotenv').config();
 
-
+// const app = express();
+// app.use(express.json());
+// app.use(
+//   express.urlencoded({
+//     extended: true,
+//   })
+// );
 
 mongoose.connect("mongodb+srv://bloodadmin:1234@cluster0.mre6e.mongodb.net/blooddata?retryWrites=true&w=majority");
 const blooddataSchema={
