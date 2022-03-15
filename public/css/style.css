@@ -198,6 +198,7 @@ nav ul li:hover {
     /* padding: 40px 0; */
 
     /* border: 2px red solid; */
+    text-decoration: none;
 
 }
 
@@ -252,6 +253,7 @@ nav ul li:hover {
     text-align: center;
     /* box-shadow: 0 0 5px; */
     border-radius: 20px;
+    
 
 }
 
@@ -292,6 +294,9 @@ nav ul li:hover {
     padding-bottom: 20px;
 }
 
+a{
+    text-decoration: none;
+}
 
 
 
