@@ -10,7 +10,7 @@
 
     <!-- UniIcon CDN Link  -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
+    <link rel="stylesheet" href="css/table.css">
 
     <style>
         * {
@@ -32,6 +32,7 @@
             align-items: center;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             flex-direction: column;
+            border: 2px solid #00F1FF;
 
 
         }
@@ -207,7 +208,64 @@
 
 <body>
 
-    <%requestlist.forEach(requestdata=>{%>
+    <!-- <table class="table">
+        <thead>
+          <tr id="header">
+    
+            <th scope="col">Requestor Name</th>
+            <th scope="col">State</th>
+            <th id="bgdata" scope="col">City </th>
+            <th id="bgdata" scope="col">Blood Group</th>
+            <th id="bgdata" scope="col">Mobile No. </th>
+            <th id="bgdata" scope="col">Request Status</th>
+            <th id="bgdata" scope="col">Accepted By</th>
+            <th id="bgdata" scope="col">Tentative Date</th>
+            <th id="bgdata" scope="col">Tentative Time </th>
+            <th id="bgdata" scope="col">Blood Bank </th>
+            <th id="bgdata" scope="col">Donation Status </th>
+          </tr>
+        </thead>
+        <tbody>
+            <%requestlist.forEach(requestdata=>{%>
+            <tr>
+              <td id="bbname">
+                <%=requestdata.rname %>
+              </td>
+              <td>
+                <%=requestdata.rstate %>
+              </td>
+              <td>
+                <%=requestdata.rcity %>
+              </td>
+              <td>
+                <%=requestdata.rbg %>
+              </td>
+              <td>
+                <%=requestdata.rnumber %>
+              </td>
+              <td>
+                <%=requestdata.raccstatus %>
+              </td>
+              <td>
+                <%=requestdata.raccby %>
+              </td>
+              <td>
+                <%=requestdata.rappoinmentdate %>
+              </td>
+              <td>
+                <%=requestdata.rappoinmentbloodbank %>
+              </td>
+              <td>
+                <%=requestdata.rdonationstatus %>
+              </td>
+    
+            </tr>
+            <%})%>
+        </tbody> -->
+
+
+
+    <!-- <%requestlist.forEach(requestdata=>{%>
         <%=requestdata.rname %>
         <%=requestdata.rstate %>
         <%=requestdata.rcity %>
@@ -218,7 +276,7 @@
         <%=requestdata.rappoinmentdate %>
         <%=requestdata.rappoinmentbloodbank %>
         <%=requestdata.rdonationstatus %>
-        <%})%>
+        <%})%> -->
 
 
 
