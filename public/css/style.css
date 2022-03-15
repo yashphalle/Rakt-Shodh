@@ -192,11 +192,12 @@ nav ul li:hover {
     grid-template-columns: repeat(3,1fr);
     width: 80vw;
     height: 50vw;
-    margin: 120px;
+    /* margin-left: 10vw; */
+    margin:auto;
     flex-wrap: wrap;
     /* padding: 40px 0; */
 
-    border: 2px red solid;
+    /* border: 2px red solid; */
 
 }
 
@@ -231,7 +232,7 @@ nav ul li:hover {
     align-items: center;
     transition: 0.5s;
 
-    border: 2px blue solid ;
+    /* border: 2px blue solid ; */
 
     margin-top: 30px;
     margin-left: 30px;
@@ -246,7 +247,7 @@ nav ul li:hover {
 .container2 .card .box .content h4 {
     margin-top: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     /* padding: 20px; */
     text-align: center;
     /* box-shadow: 0 0 5px; */
