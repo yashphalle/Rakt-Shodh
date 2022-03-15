@@ -185,12 +185,18 @@ nav ul li:hover {
 
 
 .container2 {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    /* max-width: 1200px; */
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 80vw;
+    height: 50vw;
+    margin: 120px;
     flex-wrap: wrap;
     /* padding: 40px 0; */
+
+    border: 2px red solid;
 
 }
 
@@ -198,24 +204,25 @@ nav ul li:hover {
     flex: 1;
     position: relative;
     width: 300px;
-    height: 440px;
+    height: 350px;
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
         inset -5px -5px 5px rgba(255, 255, 255, 0.5),
         5px 5px 5px rgba(0, 0, 0, 0.05),
         -5px -5px 5px rgba(255, 255, 255, 0.5);
 
     border-radius: 15px;
-    margin: 30px;
+    /* margin: 30px; */
 }
 
 
 .container2 .card .box {
-    position: absolute;
+    /* position: absolute; */
     width: 250px;
-    top: 20px;
+    height: 300px;
+    /* top: 20px;
     left: 20px;
     right: 20px;
-    bottom: 20px;
+    bottom: 20px; */
     background: #ebf5fc;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -223,10 +230,15 @@ nav ul li:hover {
     justify-content: center;
     align-items: center;
     transition: 0.5s;
+
+    border: 2px blue solid ;
+
+    margin-top: 30px;
+    margin-left: 30px;
 }
 
 .container2 .card .box .content {
-    padding: 20px;
+    /* padding: 20px; */
     text-align: center;
 
 }
@@ -235,7 +247,7 @@ nav ul li:hover {
     margin-top: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 30px;
-    padding: 20px;
+    /* padding: 20px; */
     text-align: center;
     /* box-shadow: 0 0 5px; */
     border-radius: 20px;
@@ -264,7 +276,7 @@ nav ul li:hover {
 
 
     margin: auto;
-    width: 80%;
+    /* width: 80%; */
 }
 
 .box {
