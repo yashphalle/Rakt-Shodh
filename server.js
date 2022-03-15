@@ -453,7 +453,11 @@ const filter={bid:oid};
     }
     }
     update();
-res.send("updated...");
+    Bank.find({},function(err,bloodbank){
+        res.render('adminupdate',{
+            bloodbanklist:bloodbank
+        })
+    })
 
     
 
