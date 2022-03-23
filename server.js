@@ -14,18 +14,7 @@ const http = require('http');
 const hostname = '127.0.0.1'; 
 require('dotenv').config();
 
-// var router = express.Router();
-// router.use(bodyParser.urlencoded({extended: true}));
-// router.use(bodyParser.json());
 
-
-// const app = express();
-// app.use(express.json());
-// app.use(
-//   express.urlencoded({
-//     extended: true,
-//   })
-// );
 
 mongoose.connect("mongodb+srv://bloodadmin:1234@cluster0.mre6e.mongodb.net/blooddata?retryWrites=true&w=majority");
 const blooddataSchema={
@@ -269,11 +258,10 @@ const sendsmstorequestor=async()=>{
             // trackid=result.name;
             const accountSid = process.env.TWILIO_ACCOUNT_SID;
             const authToken = process.env.TWILIO_AUTH_TOKEN;
-        // const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b';
-        // const authToken = '47e46173e3f0252863954f4a7b1ec122';
+
            
            const client = require('twilio')(accountSid, authToken);
-        //    document.write(accountSid);
+       
         // Make API calls here...
           
                 client.messages
@@ -302,9 +290,7 @@ const sendsms=async()=>{
         var gcity=result.rcity;
         var gbloodgroup=result.rbg;
         
-// gstate=req.body.rstate;
-// gcity=req.body.rcity;
-// gbloodgroup=req.body.rbloodgroup;
+
 var donerlist;
 
 // console.log(gbloodgroup);
@@ -376,7 +362,7 @@ switch (gbloodgroup) {
         }
 
 sendsms();
-// sendsmstorequestor();
+sendsmstorequestor();
 res.render('smsnotification')
         
 })
@@ -477,7 +463,9 @@ app.get("/acceptrequest",(req,res)=>{
 })
 app.post("/acceptrequest",(req,res)=>{
     var id=req.body.requestid;
-    const update=async()=>{
+
+
+const update=async()=>{
 var id=req.body.requestid;
 
 var raccstatus="accepted";
@@ -502,12 +490,12 @@ await Request.findByIdAndUpdate(id,update);
     }
 
 const sms=async()=>{
-var sms=await Request.findById(id);
-const rnumber=`${sms.rnumber}`;
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-           
-           const client = require('twilio')(accountSid, authToken);
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.TWILIO_AUTH_TOKEN;
+    var sms=await Request.findById(id);
+    const rnumber=`${sms.rnumber}`;
+    
+    const client = require('twilio')(accountSid, authToken);
         //    document.write(accountSid);
 // Make API calls here...
           
@@ -520,11 +508,13 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
                     })
                     .then(message => console.log(message.sid));
                    
-
 }
+
 update();
 sms();
-res.send("updated");
+
+// res.render("index");
+res.render('index')
 })
 
 
