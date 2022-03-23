@@ -14,9 +14,9 @@ const http = require('http');
 const hostname = '127.0.0.1'; 
 require('dotenv').config();
 
-var router = express.Router();
-router.use(bodyParser.urlencoded({extended: true}));
-router.use(bodyParser.json());
+// var router = express.Router();
+// router.use(bodyParser.urlencoded({extended: true}));
+// router.use(bodyParser.json());
 
 
 // const app = express();
@@ -296,18 +296,18 @@ const sendsms=async()=>{
         rnumber=req.body.rnumber;
         rname=req.body.rname;
 
-         var result= await Request.findOne({$and:[{rname:rname},{rnumber:rnumber}]});
+        var result= await Request.findOne({$and:[{rname:rname},{rnumber:rnumber}]});
         
         // var gstate=result.rstate;
         var gcity=result.rcity;
-        var gbloodgroup=result.rbloodgroup;
+        var gbloodgroup=result.rbg;
         
 // gstate=req.body.rstate;
 // gcity=req.body.rcity;
 // gbloodgroup=req.body.rbloodgroup;
-// var donerlist;
+var donerlist;
 
-console.log(gbloodgroup);
+// console.log(gbloodgroup);
 // PROBLEM IN GBLOODGROUP-----------
 switch (gbloodgroup) {
             case "a_pos":
@@ -350,19 +350,11 @@ switch (gbloodgroup) {
                     break;
                 
         }
-//         console.log(donerlist);
+        // console.log(donerlist);
         donerlist.forEach(donerdata=>
             {
             var number=donerdata.number;
-          
-            
-
-            // const accountSid = 'AC5e289c8926743ec2f28fc3b41fd5d01b'; 
-            // const authToken = '8e00b644e93690125de971a68bae3e6e'; 
-            // const client = require('twilio')(accountSid, authToken); 
-
-            
-           const accountSid = process.env.TWILIO_ACCOUNT_SID;
+            const accountSid = process.env.TWILIO_ACCOUNT_SID;
            const authToken = process.env.TWILIO_AUTH_TOKEN;
            
            const client = require('twilio')(accountSid, authToken);
@@ -384,7 +376,7 @@ switch (gbloodgroup) {
         }
 
 sendsms();
-sendsmstorequestor();
+// sendsmstorequestor();
 res.render('smsnotification')
         
 })
