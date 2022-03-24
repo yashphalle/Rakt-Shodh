@@ -192,6 +192,11 @@ nav ul li:hover {
     grid-template-columns: repeat(3,1fr);
     width: 80vw;
     height: 50vw;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    row-gap: 50px;
+
     /* margin-left: 10vw; */
     margin:auto;
     flex-wrap: wrap;
@@ -199,6 +204,8 @@ nav ul li:hover {
 
     /* border: 2px red solid; */
     text-decoration: none;
+
+    margin-bottom: 100px;
 
 }
 
@@ -275,12 +282,7 @@ nav ul li:hover {
 }
 
 
-.boxes {
 
-
-    margin: auto;
-    /* width: 80%; */
-}
 
 .box {
     text-align: center;
@@ -311,6 +313,8 @@ a{
     /* background-color: #4f29cd; */
     /* -webkit-background-clip: text; */
     margin-top: 15vh;
+
+    
 }
 
 .services2 h1 {
@@ -582,7 +586,7 @@ tr:hover {
 
 
 .tbhead{
-    margin-top: 100px;
+    margin-top: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -662,6 +666,16 @@ tr:hover {
     height: 55px;
 
     /* border: 2px gold solid ; */
+}
+
+.dabbe h1
+{
+    /* background: linear-gradient(to right,  #ff0000 , #ff7700 ); */
+    /* background: linear-gradient(to right, rgba(247, 3, 3, 1), rgb(255, 255, 255));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; */
+
+    color: rgba(247, 3, 3, 0.9);
 }
 
 .dabba{

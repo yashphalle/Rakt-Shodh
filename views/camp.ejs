@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/findbloodbank.css">
+    
+
+    <!-- ###################################################################################### -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <!-- ############################################################################################ -->
 
 
     <style>
@@ -15,13 +21,13 @@
             font-size: 25px;
         }
 
-        input {
+        /* input {
             font-size: 25px;
             height: 40px;
             border-radius: 10px;
 
 
-        }
+        } */
 
         #name,
         #text,
@@ -125,7 +131,8 @@
                 <input type="text" name="ovenue" id="venue">
 
                 <label for="number" id="number">Phone No.</label>
-                <input type="text" name="onumber">
+                <input type="text" name="onumber" id="phone" placeholder=" ">
+                <!-- <button type="button" onclick="getInputValue();">Get Value</button> -->
 
 
                 <div class="btn">
@@ -135,6 +142,29 @@
 
     
 
+    <script>
+
+
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            preferredCountries: ["in", "us", "co", "de"],
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        // ####################################################################################
+       
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var inputVal = document.getElementById("phone").value;
+            
+            var d = phoneInput + inputVal;
+            // Displaying the value
+            alert(d);
+        }
+
+
+    </script>
 
 
 </body>

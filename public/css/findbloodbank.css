@@ -13,6 +13,7 @@
 
 
 
+
 #searchform{
 
     display: grid ;
@@ -48,6 +49,12 @@ select{
     font-size: 20px;
 }
 
+select:focus
+{
+    text-align: left;
+}
+
+
 
 form{
     display: grid;
@@ -57,7 +64,28 @@ form{
     margin-bottom: 3rem;
 }
 
+/* 
+input {
+    font-size: 25px;
+    height: 40px;
+    border-bottom:2px solid red;
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    background: transparent;
+    transition: border-color 0.2s;
 
+} */
+
+input {
+    font-size: 25px;
+    height: 40px;
+    border-radius: 10px;
+
+}
 
 #btn{
     margin: auto;
@@ -116,3 +144,21 @@ form{
     align-items: center;
     justify-content: center;
 }
+
+
+#text
+{
+    text-align: center;
+}
+
+
+#venue
+{
+    text-align: center;
+}
+
+/* 
+#phone
+{
+    text-align: center;
+} */
