@@ -14,6 +14,7 @@ table{
     /* display:inline-flex; */
     /* display: inline-block; */
     margin: auto;
+    min-width: 80vw;
     border-collapse: collapse;
     /* width: 50vw; */
     border: 1px solid #bdc3c7;
@@ -61,3 +62,13 @@ tr:hover{
     -webkit-background-clip: text;
     
 }
+
+
+
+#first_col
+{
+    width: 500px;
+}
+
+
+
