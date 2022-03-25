@@ -368,10 +368,6 @@ res.render('smsnotification')
         
 })
 
-
-  
-
-
 app.get("/adminreqclear",(req,res)=>{
 
     Request.find({},function(err,requestdata){
