@@ -524,26 +524,17 @@ app.get("/trackrequest",(req,res)=>{
 })
 app.post("/trackrequest",(req,res)=>{
     var id=req.body.rid;
-    var progress=0;
-    // requestlist=[];
-    // var result= await Request.findOne({$and:[{rname:rname},{rnumber:rnumber}]});
-    var requestlist=  Request.find({_id:id});
-        if(requestlist.raccstatus=="accepted" ){
-            progress=3;
-        }
-        if(requestlist.rdonationstatus=="completed" ){
-            progress=4;
-        }
-        console.log(`${requestlist.raccstatus}`);
-        res.render('trackrequestresult',{
-            requestlist
-        })
-        console.log(`${progress}`);
-    console.log("progress=");
-// }
-    // })
     
-
+    requestlist=[];
+   Request.find({_id:id},function(err,requestdata){
+   res.render('trackrequestresult',{
+       requestlist:requestdata
+   })
+})
+ 
+       
+  
+        
 })
 
 app.get("/updatereqstatus",(req,res)=>{

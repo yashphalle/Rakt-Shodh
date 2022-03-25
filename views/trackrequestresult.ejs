@@ -378,6 +378,12 @@
         const four = document.querySelector(".four");
         const five = document.querySelector(".five");
 
+            one.classList.add("active");
+            two.classList.add("active");
+            three.classList.add("active");
+            four.classList.remove("active");
+            five.classList.remove("active");
+
         one.onclick = function () {
             one.classList.add("active");
             two.classList.remove("active");
