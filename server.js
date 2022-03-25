@@ -243,7 +243,7 @@ app.post("/request",(req,res)=>{
 
 
     let newrequest=new Request({
-        rname:req.body.rname,       
+        rname:"+91"+req.body.rname,       
         rstate:req.body.rstate,
         rcity:req.body.rcity,
         rbg:req.body.rbloodgroup,
@@ -252,7 +252,7 @@ app.post("/request",(req,res)=>{
         newrequest.save();
 
 const sendsmstorequestor=async()=>{
-            rnumber=req.body.rnumber;
+            rnumber="+91"+req.body.rnumber;
             rname=req.body.rname;
             var result= await Request.findOne({rname:rname},{rnumber:rnumber});
             // trackid=result.name;
@@ -281,7 +281,7 @@ const sendsmstorequestor=async()=>{
 
 
 const sendsms=async()=>{
-        rnumber=req.body.rnumber;
+        rnumber="+91"+req.body.rnumber;
         rname=req.body.rname;
 
         var result= await Request.findOne({$and:[{rname:rname},{rnumber:rnumber}]});
