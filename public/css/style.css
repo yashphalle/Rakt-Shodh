@@ -441,14 +441,17 @@ a{
 
 
 #about{
-    background-color: #bdc3c7;
+    background-color: #1c1c1d;
     font-size: 30px;
-    height: 40vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* height: 40vh; */
+    font-family: cursive;
     text-align: center;
     
-
+color:white ;
     
+}
+#icon{
+    color: red;
 }
 
 #abouth{
