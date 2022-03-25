@@ -289,7 +289,8 @@ const sendsms=async()=>{
         // var gstate=result.rstate;
         var gcity=result.rcity;
         var gbloodgroup=result.rbg;
-        
+        console.log("result=");
+        console.log(result);
 
 var donerlist;
 
@@ -336,7 +337,7 @@ switch (gbloodgroup) {
                     break;
                 
         }
-        // console.log(donerlist);
+        console.log(donerlist);
         donerlist.forEach(donerdata=>
             {
             var number=donerdata.number;
@@ -523,15 +524,25 @@ app.get("/trackrequest",(req,res)=>{
 })
 app.post("/trackrequest",(req,res)=>{
     var id=req.body.rid;
-
-    requestlist=[];
-
-    Request.find({_id:id},function(err,requestdata){
+    var progress=0;
+    // requestlist=[];
+    // var result= await Request.findOne({$and:[{rname:rname},{rnumber:rnumber}]});
+    var requestlist=  Request.find({_id:id});
+        if(requestlist.raccstatus=="accepted" ){
+            progress=3;
+        }
+        if(requestlist.rdonationstatus=="completed" ){
+            progress=4;
+        }
+        console.log(`${requestlist.raccstatus}`);
         res.render('trackrequestresult',{
-            requestlist:requestdata
+            requestlist
         })
-    })
- 
+        console.log(`${progress}`);
+    console.log("progress=");
+// }
+    // })
+    
 
 })
 
@@ -539,11 +550,13 @@ app.get("/updatereqstatus",(req,res)=>{
     
    
     Request.find({},function(err,requestdata){
+
+        console.log(progress);
         res.render('updatereqstatus',{
-            requestlist:requestdata
-        })
+            requestlist:requestdata,progress:progress} 
+        )
     })
- 
+
 })
 
 app.get("/bloodbankdashboard",(req,res)=>{
