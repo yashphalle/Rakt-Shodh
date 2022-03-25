@@ -52,7 +52,7 @@ const eventdataSchema={
     onumber:String
 }
 
-const event=mongoose.model('eventdata',eventdataSchema);
+const Event=mongoose.model('eventdata',eventdataSchema);
 app.get('/',function(req,res){
 res.render('index')
 })
@@ -243,11 +243,11 @@ app.post("/request",(req,res)=>{
 
 
     let newrequest=new Request({
-        rname:"+91"+req.body.rname,       
+        rname:req.body.rname,       
         rstate:req.body.rstate,
         rcity:req.body.rcity,
         rbg:req.body.rbloodgroup,
-        rnumber:req.body.rnumber
+        rnumber:"+91"+req.body.rnumber
     });
         newrequest.save();
 
@@ -345,7 +345,7 @@ switch (gbloodgroup) {
            const authToken = process.env.TWILIO_AUTH_TOKEN;
            
            const client = require('twilio')(accountSid, authToken);
-        //    document.write(accountSid);
+        
         // Make API calls here...
           
                 client.messages
@@ -379,6 +379,21 @@ app.get("/adminreqclear",(req,res)=>{
 
 })
 
+app.post("/adminreqsend",(req,res)=>{
+
+
+    let newevent=new Event({
+        oname:req.body.oname,       
+        ostate:req.body.ostate,
+        odate:req.body.odate,
+        ocity:req.body.ocity,
+        obg:req.body.obloodgroup,
+        ovenue:req.body.ovenue,
+        onumber:"+91"+req.body.onumber,
+    });
+        newevent.save();
+        res.render("index")
+})
 app.get("/camp",(req,res)=>{
     res.render('camp')
 })

@@ -165,6 +165,17 @@
       justify-content: center;
       align-items: center;
     }
+    #t{
+      display:inline-table;
+      width:70 vw;
+      justify-content: center; 
+      align-items: center;
+      margin-left: 150px;
+      /* margin: auto; */
+
+      /* border: 2px solid red; */
+
+    }
 
 
   </style>
@@ -174,12 +185,15 @@
 </head>
 
 <body>
-
+  <div id="nav"><header>
+    <%- include('./navbar'); %>
+</header></div>
+  
   <div class="heading">
     <h1>Available Blood Stock</h1>
 </div>
 
-
+<div id="t">
 
   <table class="table">
     <thead>
@@ -236,6 +250,7 @@
     </tbody>
 
   </table>
+</div>
   <!-- <br> -->
   <!-- <br> -->
   <!-- <p> Don't worry if you cannot find blood in these blood banks you can request blood from people in your area</p> -->
