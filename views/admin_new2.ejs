@@ -17,6 +17,7 @@
         body {
             display: flex;
             height: 100vh;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -60,6 +61,8 @@
         .heading {
             text-align: center;
             font-size: 30px;
+
+            
         }
 
 
@@ -264,6 +267,7 @@
         #heading {
             margin-top: -50px;
             /* margin-bottom: 50px; */
+        
             text-align: center;
             font-size: 50px;
             font-weight: bold;
@@ -272,10 +276,54 @@
             -webkit-background-clip: text;
 
         }
+
+        .back-btn_container
+        {
+            display: flex;
+            justify-content:flex-start;
+            width: 100%;
+            /* border: 2px red solid; */
+
+            margin-left: 10vw;
+           
+        }
+
+
+        #bck_btn
+        {
+            border-radius: 50px;
+            background-color: white;
+            outline: transparent;
+            border: 1px black solid;
+
+            margin-bottom: -20px;
+            padding: 10px;
+        }
+
+        #bck_btn:hover
+        {
+            transform: scale(1.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        #bck_btn:active
+        {
+            transform: scale(0.8);
+        }
+
+
+        
+
+
     </style>
 </head>
 
 <body>
+
+    <div class="back-btn_container">
+        <a href="/"><img id="bck_btn" src ="/images/back-button2.png" alt=""></a>
+        
+    </div>
   
     <div class="container">
         <div id="heading">Choose Account Type</div>
@@ -385,7 +433,7 @@
             document.querySelector("#box2").style = " border:5px #039be5 solid;";
             document.querySelector("#box1").style = " border:3px grey solid;";
             document.querySelector("#box3").style = " border:3px grey solid;";
-            document.querySelector(".btn1").innerHTML = "<a href='#'><button id='button3'>SUBMIT</button></a>"
+            document.querySelector(".btn1").innerHTML = "<a href='/bloodbankdashboard'><button id='button3'>SUBMIT</button></a>"
             // document.querySelector("#tytl_2").style = "background: linear-gradient(to right, #00F1FF, #3E7CEE); -webkit-text-fill-color: transparent; -webkit-background-clip: text;  "; 
         })
 

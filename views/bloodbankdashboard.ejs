@@ -1,13 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        }
+
+        body{
+        display: flex;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .sidebar{
+        /* border: 2px red solid; */
+        height: 100vh;
+        width: 300px;
+        background: linear-gradient(to right, #00F1FF, #3E7CEE);
+        }
+
+        .sidebar h1{
+        margin-top: 5%;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+        }
+
+        .sidebar img{
+        margin-top: 50px;
+        margin-left: 20px;
+        width: 200px;
+        }
+
+        .main{
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        background-color:aliceblue;
+        height: 100vh;
+        width: 100vw;
+
+
+        }
+
+        .graphbox{
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+        min-height: 200px;
+
+        /* border: 2px red solid; */
+
+
+        }
+
+        .graphbox .box{
+        position: relative;
+        background: #fff;
+        padding: 20px;
+        width: 100%;
+        box-shadow: 0, 7px, 25px rgba(0, 0, 0, 0.08);
+        border-radius: 20px;
+
+
+
+        }
+
+        .box{
+        border: 2px grey solid;
+        
+        
+        }
+
+        #box1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        }
+
+        .options
+        {
+        margin-left: 1vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px grey solid;
+        border-radius: 20px;
+        height:20vh;
+        width: 80vw;
+        }
+
+
+        .buttons{
+
+        /* background-color: black; */
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        }
+
+        .buttons button{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+        height: 5em;
+        width: 12em;
+        cursor: pointer;
+        color: black;
+        border: 2px solid #039be5;
+        border-radius: 20px;
+        background-color:white;
+
+        }
+
+        .buttons button:hover{
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(to right, #00F1FF, #3E7CEE);
+        color: white;
+        }
+
+
+        </style>
 </head>
+
 <body>
-    <a href="/updatereqstatus"><button>Update Request Status</button></a>
-    
+    <div class="sidebar">
+        <h1>Blood Bank</h1>
+        <h1>Dashboard</h1>
+
+        <img src="/images/bloodbankicon2.png" alt="">
+
+    </div>
+
+    <div class="main">
+        <div class="graphbox">
+            <div class="box" id="box1">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="box">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+
+        <div class="options">
+            <div class="buttons">
+                <a href="adminupdate">
+                    <button>UPDATE STOCK</button>
+                </a>
+            </div>
+            <!-- <div class="buttons">
+            <button>Clear Requests</button>
+        </div>
+        <div class="buttons">
+            <button>Blood Camp Requests</button>
+        </div> -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const lineChart = document.getElementById('lineChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['A+', 'B+', 'O+', 'AB+', 'AB-', 'A-'],
+                datasets: [{
+                    label: 'Blood Types',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    // borderColor: [
+                    //     'rgba(255, 99, 132, 1)',
+                    //     'rgba(54, 162, 235, 1)',
+                    //     'rgba(255, 206, 86, 1)',
+                    //     'rgba(75, 192, 192, 1)',
+                    //     'rgba(153, 102, 255, 1)',
+                    //     'rgba(255, 159, 64, 1)'
+                    // ],
+                    // borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+
+
+
+
+
+        var myChart = new Chart(lineChart, {
+            type: 'doughnut',
+            data: {
+                labels: ['A+', 'B+', 'O+', 'AB+', 'AB-', 'A-'],
+                datasets: [{
+                    label: 'Donar Chart',
+                    data: [29, 7, 3, 10, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+
+                responsive: true,
+                // scales: {
+                //     y: {
+                //         beginAtZero: true
+                //     }
+                // }
+            }
+        });
+    </script>
 </body>
+
 </html>
