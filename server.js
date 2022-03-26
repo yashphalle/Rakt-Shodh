@@ -52,7 +52,7 @@ const eventdataSchema={
     onumber:String
 }
 
-const event=mongoose.model('eventdata',eventdataSchema);
+const Event=mongoose.model('eventdata',eventdataSchema);
 app.get('/',function(req,res){
 res.render('index')
 })
@@ -247,12 +247,12 @@ app.post("/request",(req,res)=>{
         rstate:req.body.rstate,
         rcity:req.body.rcity,
         rbg:req.body.rbloodgroup,
-        rnumber:req.body.rnumber
+        rnumber:"+91"+req.body.rnumber
     });
         newrequest.save();
 
 const sendsmstorequestor=async()=>{
-            rnumber=req.body.rnumber;
+            rnumber="+91"+req.body.rnumber;
             rname=req.body.rname;
             var result= await Request.findOne({rname:rname},{rnumber:rnumber});
             // trackid=result.name;
@@ -281,7 +281,7 @@ const sendsmstorequestor=async()=>{
 
 
 const sendsms=async()=>{
-        rnumber=req.body.rnumber;
+        rnumber="+91"+req.body.rnumber;
         rname=req.body.rname;
 
         var result= await Request.findOne({$and:[{rname:rname},{rnumber:rnumber}]});
@@ -289,7 +289,8 @@ const sendsms=async()=>{
         // var gstate=result.rstate;
         var gcity=result.rcity;
         var gbloodgroup=result.rbg;
-        
+        console.log("result=");
+        console.log(result);
 
 var donerlist;
 
@@ -336,7 +337,7 @@ switch (gbloodgroup) {
                     break;
                 
         }
-        // console.log(donerlist);
+        console.log(donerlist);
         donerlist.forEach(donerdata=>
             {
             var number=donerdata.number;
@@ -344,7 +345,7 @@ switch (gbloodgroup) {
            const authToken = process.env.TWILIO_AUTH_TOKEN;
            
            const client = require('twilio')(accountSid, authToken);
-        //    document.write(accountSid);
+        
         // Make API calls here...
           
                 client.messages
@@ -367,10 +368,6 @@ res.render('smsnotification')
         
 })
 
-
-  
-
-
 app.get("/adminreqclear",(req,res)=>{
 
     Request.find({},function(err,requestdata){
@@ -382,6 +379,21 @@ app.get("/adminreqclear",(req,res)=>{
 
 })
 
+app.post("/adminreqsend",(req,res)=>{
+
+
+    let newevent=new Event({
+        oname:req.body.oname,       
+        ostate:req.body.ostate,
+        odate:req.body.odate,
+        ocity:req.body.ocity,
+        obg:req.body.obloodgroup,
+        ovenue:req.body.ovenue,
+        onumber:"+91"+req.body.onumber,
+    });
+        newevent.save();
+        res.render("index")
+})
 app.get("/camp",(req,res)=>{
     res.render('camp')
 })
@@ -523,27 +535,30 @@ app.get("/trackrequest",(req,res)=>{
 })
 app.post("/trackrequest",(req,res)=>{
     var id=req.body.rid;
-
+    
     requestlist=[];
-
-    Request.find({_id:id},function(err,requestdata){
-        res.render('trackrequestresult',{
-            requestlist:requestdata
-        })
-    })
+   Request.find({_id:id},function(err,requestdata){
+   res.render('trackrequestresult',{
+       requestlist:requestdata
+   })
+})
  
-
+       
+  
+        
 })
 
 app.get("/updatereqstatus",(req,res)=>{
     
    
     Request.find({},function(err,requestdata){
+
+        console.log(progress);
         res.render('updatereqstatus',{
-            requestlist:requestdata
-        })
+            requestlist:requestdata,progress:progress} 
+        )
     })
- 
+
 })
 
 app.get("/bloodbankdashboard",(req,res)=>{

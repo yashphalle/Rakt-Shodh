@@ -14,6 +14,22 @@
 
     }
 
+
+    .heading {
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+
+            margin-top: 2em;
+            margin-bottom: 2em;
+
+        }
+
+
+
     
     #request {
       font-size: 30px;
@@ -149,6 +165,17 @@
       justify-content: center;
       align-items: center;
     }
+    #t{
+      display:inline-table;
+      width:70 vw;
+      justify-content: center; 
+      align-items: center;
+      margin-left: 150px;
+      /* margin: auto; */
+
+      /* border: 2px solid red; */
+
+    }
 
 
   </style>
@@ -158,6 +185,16 @@
 </head>
 
 <body>
+  <div id="nav"><header>
+    <%- include('./navbar'); %>
+</header></div>
+  
+  <div class="heading">
+    <h1>Available Blood Stock</h1>
+</div>
+
+<div id="t">
+
   <table class="table">
     <thead>
       <tr id="header">
@@ -213,6 +250,7 @@
     </tbody>
 
   </table>
+</div>
   <!-- <br> -->
   <!-- <br> -->
   <!-- <p> Don't worry if you cannot find blood in these blood banks you can request blood from people in your area</p> -->
@@ -235,7 +273,7 @@
 
   </div>
 
-  <div class="pop">
+  <!-- <div class="pop">
     <div class="modal">
       <div class="close">+</div>
       <div class="popmsggggg">
@@ -246,7 +284,7 @@
         <button id="closepopbutton">OK</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <script>
 

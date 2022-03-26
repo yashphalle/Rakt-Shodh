@@ -1,40 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .heading {
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+
+        }
+
+
+
+
+
+        #searchform {
+
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            /* border: solid black; */
+            height: 200px;
+            
+
+
+        }
+
+
+
+        label {
+            /* height: 50px; */
+            /* text-align: center; */
+            justify-content: center;
+            text-align: center;
+            /* display: inline-flex; */
+            border-radius: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+
+        }
+
+        select {
+
+            height: 50px;
+            text-align: center;
+            border-radius: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        select:focus {
+            text-align: left;
+        }
+
+
+
+        form {
+            display: grid;
+        }
+
+        #state,
+        #city,
+        #bloodgroup {
+            margin-bottom: 3rem;
+        }
+
+
+     
+
+        /* 
+input {
+    font-size: 25px;
+    height: 40px;
+    border-bottom:2px solid red;
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    background: transparent;
+    transition: border-color 0.2s;
+
+} */
+
+        input {
+            font-size: 25px;
+            height: 40px;
+            border-radius: 10px;
+
+            margin-bottom: 2rem;
+
+            text-align: center;
+
+        }
+
+        #btn {
+            margin: auto;
+            height: 70px;
+            width: 200px;
+            text-align: center;
+            border-radius: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+            color: white;
+            font-size: 25px;
+            align-items: center;
+            justify-content: center;
+
+            ;
+
+        }
+
+
+        .btn {
+
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            height: 10vh;
+            /* border: 2px solid red; */
+        }
+
+        .text {
+            border-radius: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        #t1 {
+            justify-content: center;
+            text-align: center;
+            /* display: inline-flex; */
+            border-radius: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+            margin-bottom: 50px;
+            height: 40px;
+        }
+
+        #btn3 {
+            margin-top: 8rem;
+            margin: auto;
+            height: 70px;
+            width: 200px;
+            text-align: center;
+            border-radius: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: linear-gradient(to right, #00F1FF, #3E7CEE);
+            color: white;
+            font-size: 25px;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        #text {
+            text-align: center;
+        }
+
+
+        #venue {
+            text-align: center;
+        }
+
+        /* 
+#phone
+{
+    text-align: center;
+} */
+    </style>
 </head>
+
 <body>
+
+    <div class="heading">
+        <h1>Accept Request</h1>
+    </div>
+
+    <div id="searchform">
+
+    
     <form action="/acceptrequest" method="POST">
-<label for="id">Enter Request Id:</label>
-<input type="text" name="requestid" id="text">
+        <label for="id">Enter Request Id:</label>
+        <input type="text" name="requestid" id="text">
 
-<label for="name">Enter Your Name:</label>
-<input type="text" name="raccby" id="text">
+        <label for="name">Enter Your Name:</label>
+        <input type="text" name="raccby" id="text">
 
-<label for="date">Date:</label>
-<input type="date" name="date" id="date">
-
-
-<!-- here we have to create an option form which is assigned with "bid" of blood bank datas -->
-<label for="bb">Nearest Blood Bank:</label>
-<input type="text"name="bloodbank" >
-
-<label for="bb">Blood Bank Id:</label>
-<input type="text"name="bid" >
-
-<label for="time">Time</label>
-<input type="time" name="time" id="time">
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date">
 
 
-<div class="btn">
-    <button id="btn3" value="submit">Submit</button>
-</div>
+        <!-- here we have to create an option form which is assigned with "bid" of blood bank datas -->
+        <label for="bb">Nearest Blood Bank:</label>
+        <input type="text" name="bloodbank">
+
+        <label for="bb">Blood Bank Id:</label>
+        <input type="text" name="bid">
+
+        <label for="time">Time</label>
+        <input type="time" name="time" id="time">
+
+
+        <div class="btn">
+            <button id="btn3" value="submit">Submit</button>
+        </div>
     </form>
 
+</div>
+
+
+
 </body>
+
 </html>
 
 
