@@ -566,14 +566,9 @@ app.get("/bloodbankdashboard",(req,res)=>{
 })
 
 
-const port=3000;
+const port= process.env.port||3000;
 
 
-// app.listen(3000,function(){
-//     console.log("connected........");
-
-// })
-
-app.listen(port, hostname, () => {
+app.listen(port, () => {
     console.log(`HTTP Server listening at http://${hostname}:${port}/`);
   });
